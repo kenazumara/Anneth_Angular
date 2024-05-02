@@ -1,0 +1,84 @@
+<div class="ps-5">
+  <h4 class="col">{{ pageTitle }}</h4>
+  <div class="row">
+    <div
+      class="card col-4 m-2 cursor-pointer"
+      *ngFor="let product of products"
+      style="width: 15rem"
+    >
+      <div
+        class="card-body product-card d-flex justify-content-between flex-column"
+        (click)="onBack(product.id)"
+      >
+        <img
+          [src]="'/assets/products/250x250_' + product.imageCover"
+          class="card-img-top"
+          alt="Product Image"
+        />
+        <div>
+          <p class="card-text" style="font-size: 14px; font-weight: 500">
+            {{ product.name }}
+          </p>
+          <p class="card-text" style="font-size: 16px; font-weight: 700">
+            {{
+              product.discountedHighPrice
+                | currency : "USD" : "symbol" : "1.2-2"
+            }}
+            <ng-container>{{
+              product.discountedLowPrice !== product.discountedHighPrice
+                ? "- " +
+                  (product.discountedLowPrice
+                    | currency : "USD" : "symbol" : "1.2-2")
+                : null
+            }}</ng-container>
+          </p>
+          <pm-star
+            class="card-text"
+            [rating]="product.ratingsAverage"
+          ></pm-star>
+          <div class="d-flex justify-content-between mt-2">
+            <div class="card-text" style="font-size: 12px">
+              {{
+                product.highPrice - product.discountedHighPrice !==
+                product.lowPrice - product.discountedLowPrice
+                  ? product.lowPrice - product.discountedLowPrice === 0
+                    ? ""
+                    : (product.lowPrice - product.discountedLowPrice
+                      | currency : "USD" : "symbol" : "1.2-2")
+                  : ""
+              }}
+              <ng-container>{{
+                product.highPrice - product.discountedHighPrice ==
+                product.lowPrice - product.discountedLowPrice
+                  ? product.lowPrice - product.discountedLowPrice === 0
+                    ? ""
+                    : (product.lowPrice - product.discountedLowPrice
+                      | currency : "USD" : "symbol" : "1.2-2")
+                  : " - " +
+                    (product.highPrice - product.discountedHighPrice
+                      | currency : "USD" : "symbol" : "1.2-2")
+              }}</ng-container>
+            </div>
+            <div class="me-4" style="font-size: 12px; color: red">
+              {{
+                product.priceDiscountPercent
+                  ? product.priceDiscountPercent.toFixed() + "% off"
+                  : ""
+              }}
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="hover-container mb-2">
+        <button
+          class="col-12 d-flex justify-content-center mt-3 p-2 btn cart-btn"
+        >
+          Add to Cart
+        </button>
+      </div>
+    </div>
+  </div>
+  <!-- <div *ngIf="errorMessage$ | async as errorMessage">
+    Error:{{ errorMessage }}
+  </div> -->
+</div>

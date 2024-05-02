@@ -1,0 +1,67 @@
+<!-- <div id="starContainer" *ngIf="product" [title]="product.ratingsAverage">
+  <ng-container *ngFor="let star of [1, 2, 3, 4, 5]; let i = index">
+    <svg
+      width="20"
+      height="20"
+      class="star-icon"
+      xmlns="http://www.w3.org/2000/svg"
+      [style.fill]="getStarFillColor(i + 1, product.ratingsAverage)"
+    >
+      <use xlink:href="../assets/icons/sprite.svg#icon-star"></use>
+    </svg>
+  </ng-container>
+</div> -->
+<!-- 
+<div id="starContainer" *ngIf="product" [title]="product.ratingsAverage">
+  <ng-container *ngFor="let star of [1, 2, 3, 4, 5]; let i = index">
+    <svg
+      width="20"
+      height="20"
+      class="star-icon"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <polygon
+        [style.fill]="i + 1 <= product.ratingsAverage ? 'gold' : 'silver'"
+        points="10,1 13,8.5 20,8.5 14.5,13 17,20 10,15.5 3,20 5.5,13 1,8.5 8,8.5"
+        [attr.style]="{ 'width.%': getStarFillPercentage(i + 1, product.ratingsAverage) }"
+      ></polygon>
+    </svg>
+  </ng-container>
+</div> -->
+
+<!-- <div class="rating__average">
+  <div class="star-outer">
+    <div class="star-inner" style="width: 40%"></div>
+  </div>
+  [style.width]="(product.ratingsAverage / 5) * 100 + '%'"
+</div> -->
+
+<!-- <div class="rating__average">
+  <div class="star-outer">
+    <div
+      class="star-inner"
+      [style.width]="(rating / 5) * 100 + '%'"
+      ></div>
+  </div>
+</div> -->
+
+<!-- star.component.html -->
+<!-- <div class="rating__average" [title]="rating">
+  <div class="star-outer" >
+    <div class="star-inner" [style.width]="(rating / 5) * 100 + '%'"></div>
+  </div>
+</div> -->
+
+<div
+  class="rating__average"
+  [title]="rating"
+  style="width: 100px; height: 20px"
+>
+  <div class="star-outer" style="color: rgb(230 230 230)">
+    &#9733;&#9733;&#9733;&#9733;&#9733;
+    <div class="star-inner" [style.width]="(rating / 5) * 100 + '%'">
+      &#9733;&#9733;&#9733;&#9733;&#9733;
+      <!-- Unicode char[style.width]="(rating / 5) * 100 + '%'"acter for filled star -->
+    </div>
+  </div>
+</div>

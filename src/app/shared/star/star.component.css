@@ -1,0 +1,66 @@
+/* .rating__average .star-outer{
+  position: relative;
+  font-size: 1.5rem;
+  display: inline-block;
+}
+
+.rating__average .star-outer::before{
+  content: "\2605 \2605 \2605 \2605 \2605";
+  color: rgba(255, 255, 255, 0.533);
+  }
+  .rating__average .star-inner::before{
+  content: "\2605 \2605 \2605 \2605 \2605";
+  color: rgb(255, 179, 0);
+  }
+   
+  .rating__average .star-inner{
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+  }
+*/
+  /* .rating__average {
+    display: inline-block; 
+  } 
+  
+  .rating__average .star-outer{
+    position: relative;
+    font-size: 1.3rem;
+  }
+  
+  .rating__average .star-outer::before{
+  content: "\2605 \2605 \2605 \2605 \2605";
+  color: red;
+  }
+  .rating__average .star-inner::before{
+  content: "\2605 \2605 \2605 \2605 \2605";
+  color: rgba(244, 162, 10, 0.937);
+  }
+   
+  .rating__average .star-inner{
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow-y: hidden;
+  } */
+
+
+  .rating__average {
+    display: inline-block;
+  }
+  
+  .star-outer {
+    position: relative;
+    font-size: 1.5rem;
+  }
+  
+  .star-inner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    white-space: nowrap; /* Prevent stars from wrapping onto new lines */
+    color: rgba(244, 162, 10, 0.937); /* Color for filled stars */
+  }
+  

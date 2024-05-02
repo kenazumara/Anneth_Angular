@@ -1,0 +1,278 @@
+<!-- <div class="container mt-5" pt-5 *ngIf="product">
+  <h2>{{pageTitle}}</h2>
+  <div class="row">
+    <img [src]="'/assets/products/250x250_' + product.imageCover" alt="" class="img-fluid">
+  </div>
+  <p class="card-text">{{product.highPrice}}</p>
+</div> -->
+<h2>{{ errorMessage }}</h2>
+<div class="card mt-5 pt-3" *ngIf="product" style="background-color: #f2f2f2">
+  <h2>{{ pageTitle }}</h2>
+  <div class="card-header" style="background-color: #fff">
+    <h4 class="d-flex justify-content-center">{{ product.description }}</h4>
+    <div class="row d-flex justify-content-center">
+      <img
+        [src]="'/assets/products/800x800_' + product.imageCover"
+        alt=""
+        class="fluid-img"
+        style="height: 50%; width: 50%"
+      />
+    </div>
+  </div>
+  <div class="ps-5 pt-3 pb-2" style="background-color: #fff">
+    <p class="card-text mb-1" style="font-size: 16px; font-weight: 700">
+      {{
+        product.discountedLowPrice === product.discountedHighPrice
+          ? ""
+          : (product.discountedLowPrice | currency : "USD" : "symbol" : "1.2-2")
+      }}
+      <ng-container>{{
+        product.discountedHighPrice === product.discountedLowPrice
+          ? (product.discountedHighPrice
+            | currency : "USD" : "symbol" : "1.2-2")
+          : " - " +
+            (product.discountedHighPrice
+              | currency : "USD" : "symbol" : "1.2-2")
+      }}</ng-container>
+    </p>
+    <div class="d-flex mb-1">
+      <p
+        class="card-text"
+        style="
+          text-decoration: line-through;
+          flex: 0 0 1;
+          font-size: 14px;
+          font-weight: 700;
+        "
+      >
+        {{
+          product.highPrice !== product.lowPrice
+            ? (product.lowPrice | currency : "USD" : "symbol" : "1.2-2") + " - "
+            : ""
+        }}
+        <ng-container>{{
+          product.lowPrice === product.highPrice
+            ? "$" + product.highPrice
+            : (product.highPrice | currency : "USD" : "symbol" : "1.2-2")
+        }}</ng-container>
+      </p>
+      <div
+        class="ms-3"
+        style="font-size: 14px; color: red"
+        *ngIf="product.priceDiscountPercent"
+      >
+        up to
+        {{
+          product.priceDiscountPercent
+            ? product.priceDiscountPercent.toFixed() + "% off"
+            : ""
+        }}
+      </div>
+    </div>
+    <p
+      class="card-text"
+      [style.color]="getQuantityColor(product.quantity)"
+      style="font-size: 12px"
+    >
+      {{
+        product.quantity > 200
+          ? "In Stock"
+          : product.quantity <= 200 && product.quantity >= 200
+          ? "Few Units Left"
+          : product.quantity === 0
+          ? "Out of Stock"
+          : product.quantity + " units left"
+      }}
+    </p>
+    <div class="d-flex">
+      <div class="">
+        <pm-star class="card-text" [rating]="product.ratingsAverage"></pm-star>
+      </div>
+      <div class="ms-3 d-flex">
+        <p
+          class="card-text"
+          style="margin-bottom: 0px !important; line-height: 1.85"
+        >
+          {{
+            product.reviews.length === 0
+              ? "No reviews yet"
+              : product.reviews.length + " reviews"
+          }}
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="mt-2">
+    <div class="mb-2 pt-2 pb-2 ps-5" style="background-color: #fff">
+      <h4>Colors</h4>
+      <div class="d-flex me-5" style="background-color: #d5d4d4">
+        <div class="col p-2">
+          <img
+            *ngFor="let image of product.color"
+            [src]="'/assets/products/75x75_' + image.colorImage"
+            alt="{{ image.colorImage }}"
+            class="img-fluid p-2 me-2"
+            style="border: solid 1px #8c8c8c"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div
+    class="mb-2 pt-3 pb-3 ps-5"
+    style="cursor: pointer; background-color: #fff"
+  >
+    <collapsible-well>
+      <div class="" well-body *ngIf="product.specification">
+        <h4 class="d-flex justify-content-center mb-5 mt-3">
+          Product Specification
+        </h4>
+        <table class="table caption-top">
+          <tbody>
+            <tr>
+              <th scope="row">1</th>
+              <td>Model</td>
+              <td>{{ product.specification.model }}</td>
+            </tr>
+            <tr>
+              <th scope="row">2</th>
+              <td>Material</td>
+              <td>{{ product.specification.material }}</td>
+            </tr>
+            <tr>
+              <th scope="row">2</th>
+              <td>Shipping</td>
+              <td>{{ product.specification.shipping }}</td>
+            </tr>
+            <tr>
+              <th scope="row">3</th>
+              <td>Tags</td>
+              <td>{{ product.tag }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </collapsible-well>
+  </div>
+  <div
+    class="mb-2"
+    style="background-color: #fff; cursor: pointer"
+    (click)="toggleContent()"
+  >
+    <div class="review-cont pt-2 pb-2 ps-5 mt-1 d-flex justify-content-between">
+      <div class="">
+        <h4 class="me-2">Reviews ({{ product.reviews.length }})</h4>
+      </div>
+      <div class="">
+        <pm-star [rating]="product.ratingsAverage"></pm-star>
+      </div>
+    </div>
+    <div
+      class="review-cont1 pt-3 pb-3 ms-5 me-5 mb-3 ps-3 pe-3"
+      *ngIf="product.reviews[0]"
+    >
+      <div class="d-flex justify-content-between" style="font-weight: 700">
+        <div class="">
+          {{ product.reviews[0].user.name }}
+        </div>
+        <div class="">{{ product.reviews[0].createdAt | date }}</div>
+      </div>
+      <div class="">
+        <pm-star [rating]="product.reviews[0].rating"></pm-star>
+      </div>
+      <div class="col-12">{{ product.reviews[0].comment }}</div>
+    </div>
+  </div>
+
+  <div *ngIf="visible">
+    <div class="container" *ngIf="product">
+      <reviews [product]="product"></reviews>
+    </div>
+  </div>
+  <div class="mb-3">
+    <similar-products [products]="similarProducts"></similar-products>
+  </div>
+</div>
+
+<!-- <div class="fluid-container mt-5 pt-5">
+  <h2 class="col ms-4">{{ pageTitle }}</h2>
+  <h2 class="col ms-4">medd</h2>
+  <div class="row ms-3 m-auto" *ngIf="product">
+    <div
+      class="card m-2 cursor-pointer"
+      style="width: 16rem"
+    >
+      <div
+        class="card-body product-card d-flex justify-content-between flex-column"
+        [routerLink]="['/products', product.id]">
+        <img
+          [src]="'/assets/products/250x250_' + product.imageCover"
+          class="card-img-top"
+          alt="Product Image"
+        />
+        <div>
+          <p class="card-text" style="font-size: 14px; font-weight: 500">
+            {{ product.name }}
+          </p>
+          <p class="card-text" style="font-size: 16px; font-weight: 700">
+            {{
+              product.discountedHighPrice
+                | currency : "USD" : "symbol" : "1.2-2"
+            }}
+            <ng-container>{{
+              product.discountedLowPrice !== product.discountedHighPrice
+                ? "- " +
+                  (product.discountedLowPrice
+                    | currency : "USD" : "symbol" : "1.2-2")
+                : null
+            }}</ng-container>
+          </p>
+          <pm-star
+            class="card-text"
+            [rating]="product.ratingsAverage"
+          ></pm-star>
+          <div class="d-flex justify-content-between mt-2">
+            <div class="card-text" style="font-size: 12px">
+              {{
+                product.highPrice - product.discountedHighPrice !==
+                product.lowPrice - product.discountedLowPrice
+                  ? product.lowPrice - product.discountedLowPrice === 0
+                    ? ""
+                    : (product.lowPrice - product.discountedLowPrice
+                      | currency : "USD" : "symbol" : "1.2-2")
+                  : ""
+              }}
+              <ng-container>{{
+                product.highPrice - product.discountedHighPrice ===
+                product.lowPrice - product.discountedLowPrice
+                  ? product.lowPrice - product.discountedLowPrice === 0
+                    ? ""
+                    : (product.lowPrice - product.discountedLowPrice
+                      | currency : "USD" : "symbol" : "1.2-2")
+                  : " - " +
+                    (product.highPrice - product.discountedHighPrice
+                      | currency : "USD" : "symbol" : "1.2-2")
+              }}</ng-container>
+            </div>
+            <div class="me-4" style="font-size: 12px; color: red">
+              {{
+                product.priceDiscountPercent
+                  ? product.priceDiscountPercent.toFixed() + "% off"
+                  : ""
+              }}
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="hover-container mb-2">
+        <button
+          class="col-12 d-flex justify-content-center mt-3 p-2 btn cart-btn"
+        >
+          Add to Cart
+        </button>
+      </div>
+    </div>
+  </div>
+  
+</div> -->

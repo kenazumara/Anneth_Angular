@@ -1,0 +1,9 @@
+.review-cont{
+  cursor: pointer;
+  padding-right: 3rem !important;
+}
+
+.review-cont1{
+  background-color: #d5d4d4;
+  border-radius: 10px;
+}
