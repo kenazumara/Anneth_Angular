@@ -1,12 +1,9 @@
-<!-- <div class="container mt-5" pt-5 *ngIf="product">
-  <h2>{{pageTitle}}</h2>
-  <div class="row">
-    <img [src]="'/assets/products/250x250_' + product.imageCover" alt="" class="img-fluid">
-  </div>
-  <p class="card-text">{{product.highPrice}}</p>
-</div> -->
-<h2>{{ errorMessage }}</h2>
-<div class="card mt-5 pt-3" *ngIf="product" style="background-color: #f2f2f2">
+
+<div
+  class="card mt-5 pt-3"
+  *ngIf="selectedProduct$ | async as product"
+  style="background-color: #f2f2f2"
+>
   <h2>{{ pageTitle }}</h2>
   <div class="card-header" style="background-color: #fff">
     <h4 class="d-flex justify-content-center">{{ product.description }}</h4>
@@ -77,7 +74,7 @@
       {{
         product.quantity > 200
           ? "In Stock"
-          : product.quantity <= 200 && product.quantity >= 200
+          : product.quantity <= 200 && product.quantity >= 100
           ? "Few Units Left"
           : product.quantity === 0
           ? "Out of Stock"
@@ -191,88 +188,10 @@
     </div>
   </div>
   <div class="mb-3">
-    <similar-products [products]="similarProducts"></similar-products>
+    <similar-products [products]="similarProducts$ | async"></similar-products>
+  </div>
+
+  <div *ngIf="errorMessage$ | async as errorMessage"> 
+    {{errorMessage}}
   </div>
 </div>
-
-<!-- <div class="fluid-container mt-5 pt-5">
-  <h2 class="col ms-4">{{ pageTitle }}</h2>
-  <h2 class="col ms-4">medd</h2>
-  <div class="row ms-3 m-auto" *ngIf="product">
-    <div
-      class="card m-2 cursor-pointer"
-      style="width: 16rem"
-    >
-      <div
-        class="card-body product-card d-flex justify-content-between flex-column"
-        [routerLink]="['/products', product.id]">
-        <img
-          [src]="'/assets/products/250x250_' + product.imageCover"
-          class="card-img-top"
-          alt="Product Image"
-        />
-        <div>
-          <p class="card-text" style="font-size: 14px; font-weight: 500">
-            {{ product.name }}
-          </p>
-          <p class="card-text" style="font-size: 16px; font-weight: 700">
-            {{
-              product.discountedHighPrice
-                | currency : "USD" : "symbol" : "1.2-2"
-            }}
-            <ng-container>{{
-              product.discountedLowPrice !== product.discountedHighPrice
-                ? "- " +
-                  (product.discountedLowPrice
-                    | currency : "USD" : "symbol" : "1.2-2")
-                : null
-            }}</ng-container>
-          </p>
-          <pm-star
-            class="card-text"
-            [rating]="product.ratingsAverage"
-          ></pm-star>
-          <div class="d-flex justify-content-between mt-2">
-            <div class="card-text" style="font-size: 12px">
-              {{
-                product.highPrice - product.discountedHighPrice !==
-                product.lowPrice - product.discountedLowPrice
-                  ? product.lowPrice - product.discountedLowPrice === 0
-                    ? ""
-                    : (product.lowPrice - product.discountedLowPrice
-                      | currency : "USD" : "symbol" : "1.2-2")
-                  : ""
-              }}
-              <ng-container>{{
-                product.highPrice - product.discountedHighPrice ===
-                product.lowPrice - product.discountedLowPrice
-                  ? product.lowPrice - product.discountedLowPrice === 0
-                    ? ""
-                    : (product.lowPrice - product.discountedLowPrice
-                      | currency : "USD" : "symbol" : "1.2-2")
-                  : " - " +
-                    (product.highPrice - product.discountedHighPrice
-                      | currency : "USD" : "symbol" : "1.2-2")
-              }}</ng-container>
-            </div>
-            <div class="me-4" style="font-size: 12px; color: red">
-              {{
-                product.priceDiscountPercent
-                  ? product.priceDiscountPercent.toFixed() + "% off"
-                  : ""
-              }}
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="hover-container mb-2">
-        <button
-          class="col-12 d-flex justify-content-center mt-3 p-2 btn cart-btn"
-        >
-          Add to Cart
-        </button>
-      </div>
-    </div>
-  </div>
-  
-</div> -->

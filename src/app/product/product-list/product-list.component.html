@@ -1,9 +1,10 @@
-<app-carousel [filterProduct]="listFilter" class=""></app-carousel>
+
 <!-- <loading-spinner></loading-spinner> -->
-<div class="fluid-container">
+<div class="fluid-container" *ngIf="products$ | async as products">
+  <app-carousel class=""></app-carousel>
   <h2 class="col ms-4">{{ pageTitle }}</h2>
   <input type="text" [(ngModel)]="listFilter" />
-  <div class="row ms-3 m-auto" *ngIf="filteredProduct">
+  <div class="row ms-3 m-auto" >
     <h4>Filtered by: {{listFilter}}</h4>
     <div
       class="card m-2 cursor-pointer"

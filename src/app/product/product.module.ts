@@ -12,6 +12,7 @@ import { ProductEffects } from './state/product.effects';
 import { CarouselComponent } from '../carousel/carousel.component';
 import { SimilarProductsComponent } from './similar-products/similar-products.component';
 import { FormsModule } from '@angular/forms';
+import { ProductOptionComponent } from './product-option/product-option.component';
 
 const productRoutes: Routes = [
   { path: 'products', component: ProductListComponent },
@@ -24,7 +25,8 @@ const productRoutes: Routes = [
     ProductListComponent,
     ProductDetailsComponent,
     CarouselComponent,
-    SimilarProductsComponent
+    SimilarProductsComponent,
+    ProductOptionComponent
   ],
   imports: [
     FormsModule,

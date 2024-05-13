@@ -23,6 +23,7 @@ import { Product } from './product';
 })
 export class ProductService {
   constructor(private http: HttpClient) {}
+  isLoading: boolean = true
 
   getProducts() {
     const url = 'http://127.0.0.1:5000/api/v1';
@@ -30,7 +31,8 @@ export class ProductService {
       map((data) => data.data.data),
       shareReplay(1),
       tap((data) => {
-        // console.log(data)
+        console.log(data)
+        if (data) this.isLoading = false
       }),
       shareReplay(1),
       catchError(this.handleError)
@@ -48,6 +50,10 @@ export class ProductService {
     const url = 'http://127.0.0.1:5000/api/v1/products';
     return this.http.get<any>(`${url}/${id}`).pipe(
       map((data) => data.data.data),
+      tap((data) => {
+        console.log(data)
+        if (data) this.isLoading = false
+      }),
       catchError(this.handleError)
     );
   }
@@ -60,22 +66,6 @@ export class ProductService {
     );
   }
 
-  // private selectedProductSubject =new Subject<number>()
-  // selectedProductAction$ = this.selectedProductSubject.asObservable()
-
-  // selectedProduct$ = combineLatest([
-  //   this.products$,
-  //   this.selectedProductAction$
-  // ]).pipe(
-  //   map(([products, selectedId])=>{
-  //     selectedId = 5f34d519883c8c0017f7e2ef;
-  //     products.find((product: Product)=>product.id === selectedId)
-  //   }
-  //   ),
-  //   tap(data=> console.log('data:' + data),
-  //   shareReplay(1)
-  //   )
-  // )
 
   private handleError(err: HttpErrorResponse): Observable<never> {
     // in a real world app, we may send the server to some remote logging infrastructure

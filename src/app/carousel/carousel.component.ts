@@ -1,5 +1,6 @@
 import { ChangeDetectorRef,  Component,  ElementRef, Input, NgZone, OnInit, Renderer2 } from '@angular/core';
 import { interval, take } from 'rxjs';
+import { Product } from '../product/product';
 
 @Component({
   selector: 'app-carousel',
@@ -18,7 +19,7 @@ export class CarouselComponent implements OnInit {
   @Input() filterProduct!: string
   starRated: any
   ratingArr: any = []
-  product = { id: 38 }
+  @Input() products!: Product[]
   currentIndex = 0;
   rating: number = 3.2;
   totalCount: number = 0;

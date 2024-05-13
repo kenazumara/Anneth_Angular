@@ -1,6 +1,6 @@
 <!-- <div id="starContainer" [title]="rating"> -->
-  <!-- Five stars representing a rating -->
-  <!-- <ng-container *ngFor="let star of [1, 2, 3, 4, 5]; let i = index">
+<!-- Five stars representing a rating -->
+<!-- <ng-container *ngFor="let star of [1, 2, 3, 4, 5]; let i = index">
     <svg
       width="20"
       height="20"
@@ -154,18 +154,16 @@
   </div>
 </div> -->
 
-
-
-    <div class="rating__average" style="margin: 100px;">
+<!-- <div class="rating__average" style="margin: 100px;">
       <div class="star-outer">
         <div
           class="star-inner" style="width: 45%;"
           ></div>
         </div>
-      </div>
-      <!-- [style.width]="(rating_based_on_star / totalCount / 5) * 100 + '%'" -->
-    
-      <!-- <div class="carousel">
+      </div> -->
+<!-- [style.width]="(rating_based_on_star / totalCount / 5) * 100 + '%'" -->
+
+<!-- <div class="carousel">
         <div class="carousel-inner">
           <div class="carousel-item" *ngFor="let image of images; let i = index">
             <img [src]="image" (load)="onImageLoad(i)">
@@ -179,7 +177,7 @@
         </div>
       </div> -->
 
-      <!-- <div class="carousel">
+<!-- <div class="carousel">
         <div class="carousel-inner">
           <div class="carousel-item" *ngFor="let image of images; let i = index">
             <img [src]="image" (load)="onImageLoad(i)">
@@ -187,19 +185,27 @@
         </div>
       </div> -->
 
-      <div class="carousel">
-        <div class="carousel-inner">
-          <div class="carousel-item" *ngFor="let image of images; let i = index">
-            <img [src]="image" (load)="onImageLoad(i)">
-          </div>
-          <!-- Add a wrapper for the current and previous images -->
-          <div class="carousel-slide">
-            <div class="carousel-item current" [ngClass]="{'animate-out': currentIndex !== 0}">
-              <img [src]="images[currentIndex]">
-            </div>
-            <div class="carousel-item previous" [ngClass]="{'animate-in': currentIndex !== 0}">
-              <img [src]="images[(currentIndex - 1 + images.length) % images.length]">
-            </div>
-          </div>
-        </div>
+<div class="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item" *ngFor="let image of images; let i = index">
+      <img [src]="image" (load)="onImageLoad(i)" />
+    </div>
+    <!-- Add a wrapper for the current and previous images -->
+    <div class="carousel-slide">
+      <div
+        class="carousel-item current"
+        [ngClass]="{ 'animate-out': currentIndex !== 0 }"
+      >
+        <img [src]="images[currentIndex]" />
       </div>
+      <div
+        class="carousel-item previous"
+        [ngClass]="{ 'animate-in': currentIndex !== 0 }"
+      >
+        <img
+          [src]="images[(currentIndex - 1 + images.length) % images.length]"
+        />
+      </div>
+    </div>
+  </div>
+</div>

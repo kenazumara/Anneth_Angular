@@ -7,6 +7,7 @@ import {
   NavigationStart,
   Router,
 } from '@angular/router';
+import { ProductService } from './product/product.service';
 
 @Component({
   selector: 'app-root',
@@ -17,17 +18,23 @@ export class AppComponent {
   title = 'anneth-collections';
   isSpinning: boolean = true;
 
-  constructor(private router: Router) {
+  constructor(private router: Router, private productService: ProductService) {
     this.router.events.subscribe((routerEvent: Event): void => {
       this.checkRouterEvent(routerEvent);
     });
+  }
+
+  get spinner(): boolean {
+    return this.productService.isLoading
   }
 
   checkRouterEvent(routerEvent: Event): void {
     if (routerEvent instanceof NavigationStart) {
       this.isSpinning = true;
       console.log('Navigation start - Spinner should be visible');
-
+      // setInterval(()=> {
+      //   this.isSpinning = false
+      // }, 3000)
     }
     if (
       routerEvent instanceof NavigationEnd ||

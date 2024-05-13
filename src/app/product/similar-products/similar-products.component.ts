@@ -15,7 +15,7 @@ import {
 })
 export class SimilarProductsComponent implements OnInit {
   pageTitle: string = 'Products You May Love';
-  @Input() products!: Product[];
+  @Input() products!: Product[] | null;
   product!: Product;
 
   constructor(
@@ -47,7 +47,7 @@ export class SimilarProductsComponent implements OnInit {
     return !isNaN(id) && typeof id === 'number';
   }
 
-  onBack(productId: number):any {
+  onBack(productId: string):any {
     setTimeout(() => {
       // Navigate to the desired route
       this.router.navigate(['/products', productId]);

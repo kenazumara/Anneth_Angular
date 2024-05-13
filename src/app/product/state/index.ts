@@ -11,20 +11,19 @@ export const getProducts = createSelector(
 
 export const getError = createSelector(
   getProductFeatureState,
-  (state) => state.error
+  (state) => state.productsError
 );
 
-export const getCurrentProductId = createSelector(
+export const getProduct = createSelector(
   getProductFeatureState,
-  (state) => state.currentProductId
+  (state) => state.product
+)
+
+export const getPError = createSelector(
+  getProductFeatureState,
+  (state) => state.productError
 );
 
-export const getCurrentProduct = createSelector(
-  getProductFeatureState,
-  getCurrentProductId,
-  (state, currentProductId) => {
-    return currentProductId
-      ? state.products.find((p) => p.id === currentProductId)
-      : null;
-  }
-);
+export const getSimilarProducts = createSelector(
+  getProductFeatureState, (state) => state.similarProducts
+)

@@ -1,44 +1,65 @@
 import { createReducer, on } from '@ngrx/store';
 import { Product } from '../product';
 import { ProductApiActions, ProductPageActions } from './actions';
-import { setCurrentProduct } from './actions/product-page.actions';
 
 export interface ProductState {
   products: Product[];
-  currentProductId: number | null;
-  error: string;
-}
+  product: Product | null
+  similarProducts: Product[] | null;
+  currentProductId: string | null;
+  productError: string,
+  productsError: string
+};
+
 
 const initialState: ProductState = {
   products: [],
+  product: null,
+  similarProducts: null,
   currentProductId: null,
-  error: '',
+  productError: '',
+  productsError:''
 };
 
 export const productReducer = createReducer<ProductState>(
   initialState,
   on(
     ProductApiActions.loadProductsSuccess,
-    (state, { products }): ProductState => {
+    (state, action): ProductState => {
       return {
         ...state,
-        products: products,
-        error: '',
+        products: action.products,
+        productsError: '',
       };
     }
   ),
-  on(ProductApiActions.loadProductFailure, (state, action): ProductState => {
+  on(ProductApiActions.loadProductsFailure, (state, action): ProductState => {
     return {
       ...state,
       products: [],
-      error: action.error,
+      productsError: action.error,
     };
   }),
-  on(ProductPageActions.setCurrentProduct, (state, action) => {
+  on(ProductApiActions.loadProductSuccess, (state, action) => {
+    return{
+      ...state,
+      product: action.product,
+      productError: ''
+    }
+  }),
+  on(ProductApiActions.loadProductFailure, (state, action): ProductState => {
     return {
       ...state,
-      setCurrentProduct: action.currentProductId,
-      error: '',
+      product: null,
+      similarProducts: null,
+      productError: action.error
     };
+  }),
+  on(ProductApiActions.loadSimilarProductSuccess, (state, action) => {
+    return {
+      ...state,
+      similarProducts: action.products,
+      productError: ''
+    }
   })
 );

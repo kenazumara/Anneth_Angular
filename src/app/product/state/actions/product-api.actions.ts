@@ -6,7 +6,23 @@ export const loadProductsSuccess = createAction(
   props<{ products: Product[] }>()
 );
 
+export const loadProductsFailure = createAction(
+  '[Product Api] Load Product Failed',
+  props<{ error: string }>()
+);
+
+export const loadProductSuccess = createAction(
+  '[Product Api] Load Product Success',
+  props<{ product: Product }>()
+);
+
+export const loadSimilarProductSuccess = createAction(
+  '[Product Api Load Similar Product Success]',
+  props<{products: Product[]}>()
+)
+
 export const loadProductFailure = createAction(
   '[Product Api] Load Product Failed',
   props<{ error: string }>()
 );
+
