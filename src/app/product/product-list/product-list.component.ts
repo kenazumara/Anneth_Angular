@@ -57,22 +57,22 @@ export class ProductListComponent implements OnInit {
 
   ngOnInit(): void {
     // Dispatch action here to get products
-    // this.store.dispatch(ProductPageActions.loadProducts());
+    this.store.dispatch(ProductPageActions.loadProducts());
 
     // // Gets the products from the store
-    // this.products$ = this.store.select(getProducts);
+    this.products$ = this.store.select(getProducts);
 
-    // this.errorMessage$ = this.store.select(getError);
+    this.errorMessage$ = this.store.select(getError);
 
-     this.sub = this.productService.getProducts().subscribe({
-      // next: (products) => (this.products = products),
-      next: (products) => {
-        this.products = products;
-        this.filteredProduct = this.products;
-        console.log('filteredProduct', this.filteredProduct)
-      },
-      error: (err) => (this.errorMessage = err),
-    });
+    //  this.sub = this.productService.getProducts().subscribe({
+    //   // next: (products) => (this.products = products),
+    //   next: (products) => {
+    //     this.products = products;
+    //     this.filteredProduct = this.products;
+    //     console.log('filteredProduct', this.filteredProduct)
+    //   },
+    //   error: (err) => (this.errorMessage = err),
+    // });
 
     // this.productService.getprod().subscribe((event) => {
     //   console.log(event);
