@@ -1,0 +1,65 @@
+
+<div class="container mt-5">
+  <div class="row">
+    <h6 class="fs-4 fw-bold mb-3">Account Information</h6>
+  </div>
+  <div class="row w-75 m-auto">
+    <div class="col-lg-3 col-md-4 col-sm-5 acct-nav">
+      <div class="my-profile d-flex mb-4">
+        <div class="acct-icon col-2">
+          <svg
+          width="25"
+          height="25"
+          xmlns="http://www.w3.org/2000/svg"
+          style="fill: #5b5858"
+        >
+          <use xlink:href="../../../assets/icons/sprite.svg#icon-user"></use>
+        </svg>
+        </div>
+        <div class="my-profile-cont ms-2">
+          <p class="fs-5 fw-semibold mb-3">My Profile</p>
+          <p class="acct-info fs-6 mb-1" routerLink="/account/profile">Accout Information</p>
+          <p class="acct-info fs-6" routerLink="/account/delivery-address">Delivery Address</p>
+        </div>
+      </div>
+      <div class="my-orders d-flex mb-4">
+        <div class="acct-icon col-2">
+          <svg
+          width="25"
+          height="25"
+          xmlns="http://www.w3.org/2000/svg"
+          style="fill: #5b5858"
+        >
+          <use xlink:href="../../../assets/icons/sprite.svg#icon-shopping-bag"></use>
+        </svg>
+        </div>
+        <div class="my-orders-cont ms-2">
+          <p class="fs-5 fw-semibold mb-3">My Orders</p>
+          <p class="acct-info fs-6 mb-1">Order History</p>
+          <p class="pending-ratings fs-6">Pending Ratings</p>
+        </div>
+      </div>
+      <div class="delete-acct d-flex">
+        <div class="acct-icon col-2">
+          <svg
+          width="25"
+          height="25"
+          xmlns="http://www.w3.org/2000/svg"
+          style="fill: #5b5858"
+        >
+          <use xlink:href="../../../assets/icons/sprite.svg#icon-user-times"></use>
+        </svg>
+        </div>
+        <div class="delete-acct-cont ms-2">
+          <h5 class="fs-5 fw-semibold mb-3">
+            Delete Account
+          </h5>
+          <a>Delete Account</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-6 col-md-7 col-sm-7 ms-2">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

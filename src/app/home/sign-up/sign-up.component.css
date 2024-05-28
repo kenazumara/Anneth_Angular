@@ -1,0 +1,36 @@
+.container{
+  z-index: 200;
+  margin-top: 80px;
+}
+
+.login-btn{
+  background-color: orange;
+  color: white;
+  padding: 8px 12px;
+  width: 100%;
+}
+
+.img-fluid2{
+  width: 50%;
+}
+
+.img-logo{
+  width: 5%;
+  }
+
+.signup-link{
+  text-decoration: none;
+  color: orange;
+}
+
+.signin-cont{
+  width: 500px;
+  margin: auto;
+  height: 100vh;
+  padding-bottom: 100%;
+  /* padding-bottom: 1000px; */
+}
+
+  .terms {
+    color: orange;
+  }

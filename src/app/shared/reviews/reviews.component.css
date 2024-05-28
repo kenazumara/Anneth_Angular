@@ -1,26 +1,3 @@
-/* star-rating-bar.component.css
-.rating-bar {
-  display: flex;
-  align-items: center;
-  height: 30px;
-  border: 1px solid #ccc;
-  position: relative;
-}
-
-.filling-bar {
-  height: 100%;
-  background-color: gold;
-  position: absolute;
-  top: 0;
-  left: 0;
-} */
-
-/* bar-rating.component.css */
-/* .rating-bars {
-  display: flex;
-  gap: 5px;
-} */
-
 .rating-bar {
   height: 30px;
   background-color: rgba(244, 162, 10, 0.937);

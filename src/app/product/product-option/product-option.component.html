@@ -1,1 +1,134 @@
-<p>product-option works!</p>
+<div
+  class="modal fade mt-5"
+  style="padding-bottom: 48px"
+  [id]="'exampleModal_' + index"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-dialog-scrollable modal-fullscreen">
+    <div class="modal-content">
+      <div class="modal-header">
+        <!-- <h5 class="modal-title align-content-center" id="exampleModalLabel">
+          {{ pageTitle }}
+        </h5> -->
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body" *ngIf="product">
+        <h5
+          class="modal-title d-flex justify-content-center"
+          id="exampleModalLabel"
+        >
+          {{ product.name }}
+        </h5>
+        <div class="row d-flex justify-content-center">
+          <img
+            [src]="
+              '/assets/products/800x800_' + product.color[index].colorImage
+            "
+            class="img-fluid w-25"
+            alt=""
+          />
+        </div>
+        <div class="col d-flex justify-content-center fw-bold fs-4">
+          {{
+            product.color[index].discountPrice
+              | currency : "USD" : "symbol" : "1.2-2"
+          }}
+        </div>
+        <div class="col pb-3 fs-4">
+          <span class="fw-bold me-3">Color:</span
+          >{{ product.color[index].color }}
+        </div>
+        <div class="d-flex mb-4" style="background-color: #d5d4d4">
+          <div *ngFor="let colorImage of product.color; let i = index">
+            <img
+              [src]="'/assets/products/75x75_' + colorImage.colorImage"
+              alt="{{ colorImage.colorImage }}"
+              class="img-fluid p-2 me-2"
+              data-bs-toggle="modal"
+              [attr.data-bs-target]="'#exampleModal_' + i"
+              style="border: solid 1px #8c8c8c; cursor: pointer"
+            />
+          </div>
+        </div>
+        <div class="col fs-4 mb-4">
+          <span class="fw-bold me-3">Quantity:</span
+          >{{ product.color[index].quantity }} Available
+        </div>
+        <form novalidate #priceForm="ngForm" (ngSubmit)="createCartFromForm(priceForm)">
+          <div class=" input-group fs-4">
+            <button
+              type="button"
+              [disabled]="quantity <= 1"
+              class="btn add-btn fs-3"
+              (click)="decrement()"
+            >
+              -
+            </button>
+            <input
+              type="number"
+              class="add-input"
+              disabled
+              aria-label="Quantity input"
+              min="1"
+              [ngModel]="quantity"
+              name="quantity"
+              (ngModelChange)="quantitySelected($any($event.target).value)"
+            />
+            <button
+              type="button"
+              style="padding: 3px 16px 8px 10px"
+              class="btn add-btn fs-2"
+              [disabled]="quantity >= product.color[index].quantity"
+              (click)="increment()"
+            >
+              +
+            </button>
+          </div>
+          <div class="form-group col mt-4 fs-4">
+            <span class="fw-bold">Total Cost : </span>
+            {{ totalCost | currency : 'USD' : 'symbol' : '1.2-2' }}
+            <input
+            hidden
+              disabled
+              name="color"
+              [ngModel]="product.color[index].color"
+              class="form-control"
+            />
+            <input
+            hidden
+              disabled
+              name="id"
+              [ngModel]="product.id"
+              class="form-control"
+            />
+            <input
+            hidden
+              disabled
+              name="discountPrice"
+              [ngModel]="product.color[index].discountPrice"
+              class="form-control"
+            />
+            <input
+            hidden
+              disabled
+              name="totalCost"
+              [ngModel]="totalCost | currency : 'USD' : 'symbol' : '1.2-2'"
+              class="form-control"
+            />
+            
+          </div>
+          <div class="col mt-4 me-3 float-end btn-container">
+            <button type="submit" class="btn price-btn fs-6" (click)="addToCart(priceForm)">Add To Cart</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

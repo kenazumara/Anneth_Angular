@@ -2,17 +2,48 @@
   /* padding: 0px 10px; */
 }
 
+.acct-name p{
+  font-size: 19px;
+
+}
+.acct-name p::first-letter{
+  font-size: 19px;
+}
+
+.account-btn {
+  background-color: orange;
+  color: white;
+  padding: 10px 20px;
+}
+
+.account-btn2 {
+background-color: rgb(232 232 232);
+color: rgb(36, 36, 36)
+}
+
+.btn-sign {
+  background-color: orange;
+  color: white;
+  padding: 8px 12px;
+  width: 100%;
+}
+
+.logo-sym {
+  width: 9%;
+  margin-right: 48px;
+}
+
 .logo-container {
   padding-bottom: 10px;
   /* margin: 0; */
   background-color: #fff;
-  z-index: 1000000;
+  z-index: 1;
   margin-top: -15px;
   top: 15px;
 }
 
 .img-logo {
-  width: 5.5%;
+  width: 88%;
 }
 
 p {
@@ -25,6 +56,52 @@ p::first-letter {
   font-size: 29px;
 }
 
+/* @media screen and (max-width: 992px) {
+  p {
+    font-size: 22px;
+  }
+  p::first-letter {
+    font-size: 24px;
+  }
+  .img-logo {
+    width: 25%;
+  }
+
+  .logo-sym {
+    width: 20%;
+  }
+} */
+
+@media screen and (max-width: 1600px) {
+  p {
+    font-size: 22px;
+  }
+  p::first-letter {
+    font-size: 24px;
+  }
+  .img-logo {
+    width: 28%;
+  }
+
+  .logo-sym {
+    margin-right: 27px;
+  }
+}
+@media screen and (max-width: 1290px) {
+  p {
+    font-size: 22px;
+  }
+  p::first-letter {
+    font-size: 24px;
+  }
+  .img-logo {
+    width: 25%;
+  }
+
+  .logo-sym {
+    width: 15%;
+  }
+}
 @media screen and (max-width: 992px) {
   p {
     font-size: 22px;
@@ -32,8 +109,13 @@ p::first-letter {
   p::first-letter {
     font-size: 24px;
   }
-  .img-logo{
-    width: 7%;  }
+  .img-logo {
+    width: 25%;
+  }
+
+  .logo-sym {
+    width: 20%;
+  }
 }
 
 @media screen and (max-width: 768px) {
@@ -43,8 +125,11 @@ p::first-letter {
   p::first-letter {
     font-size: 22px;
   }
-  .img-logo{
-    width: 10%
+  .img-logo {
+    width: 25%;
+  }
+  .logo-sym {
+    width: 30%;
   }
 }
 
@@ -55,23 +140,36 @@ p::first-letter {
   p::first-letter {
     font-size: 20px;
   }
-  .img-logo{
-    width: 13%;
+  .img-logo {
+    width: 35%;
+  }
+  .logo-sym {
+    width: 40%;
   }
 }
-
-.row {
-  display: flex;
+@media screen and (max-width: 376px) {
+  p {
+    font-size: 18px;
+  }
+  p::first-letter {
+    font-size: 20px;
+  }
+  .img-logo {
+    width: 40%;
+  }
+  .logo-sym {
+    width: 45%;
+  }
 }
 .search {
   display: flex;
   justify-content: center;
-  flex: 0 0 55%;
+  flex: 0 0 33%;
   margin-right: 12px;
 }
 
 .search-input {
-  width: 82%;
+  /* width: 52%; */
   font-family: inherit;
   color: inherit;
   margin-right: -50px;
@@ -94,6 +192,25 @@ p::first-letter {
     border: transparent;
   }
 }
+
+.cart{
+  margin-top: 11px;
+  margin-left: 40px;
+}
+
+.cart-text{
+margin-left: 13px;
+font-size: 17px;
+font-weight: 600;
+/* color: orange; */
+}
+
+.custom-badge {
+  left: 38%; /* Adjust as needed to override Bootstrap's .start-100 */
+  transform: translate(-50%, -50%);
+  padding: 3px !important
+}
+
 
 .sk-circle {
   margin: 100px auto;

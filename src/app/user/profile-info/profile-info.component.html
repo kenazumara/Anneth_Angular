@@ -1,0 +1,49 @@
+<div class="container acct-nav">
+  <div class="title">{{ pageTitle }}</div>
+  <form [formGroup]="userForm">
+    <div class="mb-3">
+      <label for="firstName" class="form-label">First Name</label>
+      <input
+        type="text"
+        class="form-control"
+        id="firstName"
+        placeholder="First Name"
+        formControlName="firstName"
+      />
+    </div>
+    <div class="mb-3">
+      <label for="firstName" class="form-label">Last Name</label>
+      <input
+        type="text"
+        class="form-control"
+        id="lastName"
+        placeholder="Last Name"
+        formControlName="lastName"
+      />
+    </div>
+    <div class="mb-3">
+      <label for="email" class="form-label">Email</label>
+      <input
+        type="text"
+        class="form-control"
+        id="email"
+        placeholder="First Name"
+        formControlName="email"
+      />
+    </div>
+    <div class="mb-3">
+      <label for="phone" class="form-label">Phone Number</label>
+      <input
+        type="tel"
+        value="Readonly input here..."
+        aria-label="readonly input example"
+        readonly
+        class="form-control"
+        id="phone"
+        placeholder="Phone Number"
+        formControlName="phone"
+      />
+    </div>
+  </form>
+</div>
+

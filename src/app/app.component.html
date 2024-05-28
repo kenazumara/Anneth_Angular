@@ -1,4 +1,4 @@
-<div class="sk-circle" *ngIf="spinner">
+<!-- <div class="sk-circle" *ngIf="spinner">
   <div class="sk-circle1 sk-child"></div>
   <div class="sk-circle2 sk-child"></div>
   <div class="sk-circle3 sk-child"></div>
@@ -11,26 +11,29 @@
   <div class="sk-circle10 sk-child"></div>
   <div class="sk-circle11 sk-child"></div>
   <div class="sk-circle12 sk-child"></div>
-</div>
+</div> -->
 
 <div class="fluid-container w-100">
-  <div class=" d-flex logo-container pt-2 mb-4 ps-4 position-fixed
-  ">
-    <div class="logo-sym d-flex" routerLink="/products" style="cursor: pointer;">
+  <div class="d-flex logo-container pt-2 mb-4 ps-4 position-fixed">
+    <div class="logo-sym d-flex" routerLink="/products" style="cursor: pointer">
       <div class="img-logo me-3 d-flex align-items-center">
         <img src="../assets/img/logo.png" class="img-fluid" alt="logo" />
       </div>
-      <div class="col-3 d-flex align-items-center">
+      <div class="d-flex align-items-center">
         <p class="mb-0">Anneth</p>
       </div>
     </div>
-    <form action="#" class=" d-flex search">
+    <form action="#" class="search">
       <input
         type="text"
         class="form-control search-input"
         placeholder="Search Products"
       />
-      <button type="button" class="btn align-items-center search-btn">
+      <button
+        type="button"
+        routerLink="/cart"
+        class="btn align-items-center search-btn"
+      >
         <svg
           width="28"
           height="28"
@@ -41,7 +44,122 @@
         </svg>
       </button>
     </form>
-    
+    <div class="row ms-3">
+      <div class="dropdown">
+        <a
+          class="btn account-btn dropdown-toggle"
+          href="#"
+          role="button"
+          data-bs-toggle="dropdown"
+          aria-expanded="false"
+          *ngIf="!userLoggedIn"
+        >
+          Account
+        </a>
+        <a
+          class="btn account-btn2 btn-lg dropdown-toggle d-flex align-items-center"
+          href="#"
+          role="button"
+          data-bs-toggle="dropdown"
+          aria-expanded="false"
+          *ngIf="userLoggedIn"
+        >
+          <div class="login-display-btn d-flex">
+            <div class="acct-icon d-flex align-items-center t me-2">
+              <svg
+                width="20"
+                height="20"
+                xmlns="http://www.w3.org/2000/svg"
+                style="fill: #5b5858"
+              >
+                <use
+                  xlink:href="../../../assets/icons/sprite.svg#icon-user-check"
+                ></use>
+              </svg>
+            </div>
+            <div class="acct-name align-items-center d-flex">
+              <p class="acct-name-p mb-0 fw-semibold">
+                Hi, {{ currentUser.firstName }}
+              </p>
+            </div>
+          </div>
+        </a>
+
+        <ul class="dropdown-menu">
+          <li>
+            <a class="dropdown-item"></a>
+            <button
+              class="btn m-1 btn-sign"
+              *ngIf="!userLoggedIn"
+              routerLink="/login"
+            >
+              SIGN IN
+            </button>
+            <button class="btn" *ngIf="userLoggedIn" routerLink="/account">
+              Account
+            </button>
+          </li>
+          <li><a class="dropdown-item" href="#">Another action</a></li>
+          <li><hr class="dropdown-divider" /></li>
+          <!-- <li><a class="dropdown-item" href="#">Something else here</a></li> -->
+          <li>
+            <a class="dropdown-item" *ngIf="userLoggedIn" (click)="logOut()"
+              >Log Out</a
+            >
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="cart">
+      <div class="cart-icon d-flex">
+        <button
+          type="button"
+          class="d-flex cursor-pointer btn position-relative"
+          style="padding: 0px !important; margin-top: 2px"
+          routerLink="/cart"
+          *ngIf="userLoggedIn"
+        >
+          <svg
+            width="24"
+            height="24"
+            xmlns="http://www.w3.org/2000/svg"
+            style="fill: #5b5858; margin-bottom: 13px"
+          >
+            <use
+              xlink:href="../assets/icons/sprite.svg#icon-shopping-cart"
+            ></use>
+          </svg>
+          <span
+            class="custom-badge position-absolute top-0 translate-middle badge rounded-pill"
+            style="background-color: orange; padding: 3px"
+          >
+            {{ cartTotalItems }}
+          </span>
+          <div class="cart-text">Cart</div>
+        </button>
+        <button
+          type="button"
+          class="d-flex btn position-relative"
+          style="padding: 0px !important; margin-top: 2px"
+          *ngIf="!userLoggedIn"
+        >
+          <svg
+            width="24"
+            height="24"
+            xmlns="http://www.w3.org/2000/svg"
+            style="fill: #5b5858; margin-bottom: 13px"
+          >
+            <use
+              xlink:href="../assets/icons/sprite.svg#icon-remove_shopping_cart"
+            ></use>
+          </svg>
+          <div class="cart-text">Cart</div>
+        </button>
+        <!-- <div class="cart-text">Cart</div> -->
+      </div>
+    </div>
   </div>
-  <pm-shell-component></pm-shell-component>
+  <div>
+    <pm-shell-component></pm-shell-component>
+  </div>
 </div>

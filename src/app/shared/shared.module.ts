@@ -6,6 +6,7 @@ import { CollapsibleWellComponent } from './collapsible-well/collapsible-well.co
 import { ReviewsComponent } from './reviews/reviews.component';
 import { PopupComponent } from './popup/popup.component';
 import { RouterModule } from '@angular/router';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,8 @@ import { RouterModule } from '@angular/router';
   ],
   imports: [CommonModule, RouterModule],
   exports: [
+    ReactiveFormsModule,
+    FormsModule,
     StarComponent,
     CommonModule,
     CollapsibleWellComponent,

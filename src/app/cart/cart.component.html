@@ -1,0 +1,61 @@
+<div class="container cart-cont">
+  <div class="col-lg-7 col-md-9 col-ms-6">
+    <div class="card" *ngIf="cartItems">
+      <div class="card-header">Cart ({{ cartItems.totalQuantityOrdered }})</div>
+      <div class="card-body">
+        <div
+          class="mb-4 cart-row"
+          *ngFor="let item of cartItems.items; let i = index"
+        >
+          <div class="d-flex justify-content-around">
+            <div class="cart-img">
+              <img
+                [src]="'/assets/products/75x75_' + item.image"
+                alt=""
+                class="fluid-img"
+              />
+            </div>
+            <div class="product-desc">
+              <p class="product-name">{{ item.name }}, <ng-container > {{item.description}}</ng-container></p>
+            </div>
+            <div class="product-price">
+              <p>{{ item.discountPrice }}</p>
+              <p class="text-decoration-line-through">
+                {{ item.price }}
+              </p>
+            </div>
+          </div>
+          <div class="d-flex justify-content-between mt-3">
+            <div class="cart-del">
+              <svg
+                width="24"
+                height="24"
+                xmlns="http://www.w3.org/2000/svg"
+                style="fill: #5b5858"
+              >
+                <use xlink:href="../assets/icons/sprite.svg#icon-trash-2"></use>
+              </svg>
+              <div class="btn" type="submit">REMOVE</div>
+            </div>
+            <div class="cart-qty-btn d-flex">
+              <button class="btn" type="submit" (click)="decrement(i)">
+                -
+              </button>
+              <button disabled class="btn btn-val">
+                {{ item.quantity }}
+              </button>
+              <button
+                class="btn"
+                [disabled]="item.quantity >= item.maxQuantity"
+                type="submit"
+                (click)="increment(i)"
+              >
+                +
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

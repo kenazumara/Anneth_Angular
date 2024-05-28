@@ -1,0 +1,111 @@
+<div class="container acct-nav" *ngIf="user">
+  <div class="d-flex justify-content-between delivey-title pb-3">
+    <div class="col ms-4">
+      <p class="delivery-text">
+        Delivery Addresses
+      </p>
+    </div>
+    <div class="col">
+      <p class="delivery-btn">
+        Add New Addresses
+      </p>
+    </div>
+  </div>
+  <div class="container acct-nav2 d-flex flex-column w-75 p-0 mt-4">
+    <div class="col acct-box d-flex float-end flex-row-reverse">
+      <button class="btn d-flex">
+        <div class="btn-icon d-flex">
+          <svg
+                  width="15"
+                  height="15"
+                  xmlns="http://www.w3.org/2000/svg"
+                  style="fill: #5b5858"
+                >
+                  <use
+                    xlink:href="../../../assets/icons/sprite.svg#icon-trash-2"
+                  ></use>
+                </svg>
+        </div>
+        <p class="des-text">
+          Delete
+        </p>
+      </button>
+      <button class="btn d-flex">
+        <div class="btn-icon d-flex justify-content-center">
+          <svg
+                  width="15"
+                  height="15"
+                  xmlns="http://www.w3.org/2000/svg"
+                  style="fill: #5b5858"
+                >
+                  <use
+                    xlink:href="../../../assets/icons/sprite.svg#icon-edit"
+                  ></use>
+                </svg>
+        </div>
+        <p class="des-text ">
+          Edit
+        </p>
+      </button>
+    </div>
+    <div class="ms-2">
+      <div class="col d-flex">
+        <div class="tiny-icon">
+          <svg
+                  width="12"
+                  height="12"
+                  xmlns="http://www.w3.org/2000/svg"
+                  style="fill: #5b5858"
+                >
+                  <use
+                    xlink:href="../../../assets/icons/sprite.svg#icon-user"
+                  ></use>
+                </svg>
+        </div>
+        <div class="text">
+          <p>
+            {{user.firstName}} <ng-container>{{user.lastName}}</ng-container>
+          </p>
+        </div>
+      </div>
+      <div class="col d-flex">
+        <div class="tiny-icon">
+          <svg
+                  width="12"
+                  height="12"
+                  xmlns="http://www.w3.org/2000/svg"
+                  style="fill: #5b5858"
+                >
+                  <use
+                    xlink:href="../../../assets/icons/sprite.svg#icon-location-pin"
+                  ></use>
+                </svg>
+        </div>
+        <div class="text" *ngIf="user.addresses">
+          <p>
+            {{user.addresses[0].street}} <ng-container> {{user.addresses[0].city}}</ng-container> <ng-container> {{user.addresses[0].state}}</ng-container>
+          </p>
+        </div>
+      </div>
+      <div class="col d-flex">
+        <div class="tiny-icon">
+          <svg
+                  width="12"
+                  height="12"
+                  xmlns="http://www.w3.org/2000/svg"
+                  style="fill: #5b5858"
+                >
+                  <use
+                    xlink:href="../../../assets/icons/sprite.svg#icon-phone"
+                  ></use>
+                </svg>
+        </div>
+        <div class="text">
+          <p>
+            {{user.phone}}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -27,3 +27,8 @@ export const getPError = createSelector(
 export const getSimilarProducts = createSelector(
   getProductFeatureState, (state) => state.similarProducts
 )
+
+
+export const getTotalCost = createSelector(
+  getProductFeatureState, (state) => state.totalCost
+)

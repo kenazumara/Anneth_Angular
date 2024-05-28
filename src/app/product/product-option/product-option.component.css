@@ -1,0 +1,97 @@
+.pop-containter {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: rgba(68, 68, 68, 0.781);
+  z-index: 9;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+
+.pops {
+  position: absolute;
+  width: 40%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 10px;
+  border: 1px solid #ccc;
+  z-index: 1000;
+  border-radius: 10px;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+
+.close {
+  font-size: 35px;
+  position: absolute;
+  top: 0;
+  right: 5%;
+  text-decoration: none;
+  color: black;
+  cursor: pointer;
+}
+
+.review-top {
+  background-color: #f4f4f4;
+  margin: auto;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 10px;
+  width: fit-content;
+  /* font-size: 27px; */
+}
+
+.button {
+  border: solid 1px #454545;
+  padding: 0px 20px 10px 19px;
+  /* font-size: 16px                                                                 */
+}
+
+input[type="number"] {
+  text-align: center;
+  width: 70px;
+  padding-left: 15px
+}
+
+.add-btn {
+  background-color: orange;
+  color: white;
+  padding: 3px 16px 8px 19px;
+} 
+
+.add-btn:focus{
+  border: solid 1px orange;
+  background-color: white;
+  color: orange
+}
+
+.add-input {
+  border: transparent;
+
+  appearance: none !important;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+.btn-container {
+  margin-bottom: 30px;
+}
+
+.price-btn {
+  background-color: orange;
+  color: white;
+  margin-bottom: 30px;
+  padding: 10px 20px
+  
+}
+.price-btn:focus {
+  border: solid 1px orange;
+  background-color: white;
+  color: orange
+}

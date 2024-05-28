@@ -1,4 +1,3 @@
-
 <div
   class="card mt-5 pt-3"
   *ngIf="selectedProduct$ | async as product"
@@ -99,18 +98,24 @@
       </div>
     </div>
   </div>
+
   <div class="mt-2">
     <div class="mb-2 pt-2 pb-2 ps-5" style="background-color: #fff">
       <h4>Colors</h4>
-      <div class="d-flex me-5" style="background-color: #d5d4d4">
-        <div class="col p-2">
+      <div class="d-flex" style="background-color: #d5d4d4">
+        <div *ngFor="let colorImage of product.color; let i = index">
           <img
-            *ngFor="let image of product.color"
-            [src]="'/assets/products/75x75_' + image.colorImage"
-            alt="{{ image.colorImage }}"
+            [src]="'/assets/products/75x75_' + colorImage.colorImage"
+            alt="{{ colorImage.colorImage }}"
             class="img-fluid p-2 me-2"
-            style="border: solid 1px #8c8c8c"
+            data-bs-toggle="modal"
+            [attr.data-bs-target]="'#exampleModal_' + i"
+            style="border: solid 1px #8c8c8c; cursor: pointer"
           />
+          <app-product-option
+            [product]="product"
+            [index]="i"
+          ></app-product-option>
         </div>
       </div>
     </div>
@@ -161,17 +166,17 @@
       <div class="">
         <h4 class="me-2">Reviews ({{ product.reviews.length }})</h4>
       </div>
-      <div class="">
+      <div class="" *ngIf="product.reviews">
         <pm-star [rating]="product.ratingsAverage"></pm-star>
       </div>
     </div>
     <div
       class="review-cont1 pt-3 pb-3 ms-5 me-5 mb-3 ps-3 pe-3"
-      *ngIf="product.reviews[0]"
+      *ngIf="product.reviews[0]user"
     >
       <div class="d-flex justify-content-between" style="font-weight: 700">
         <div class="">
-          {{ product.reviews[0].user.name }}
+          {{ product.reviews[0].user.firstName }} <ng-container>  {{product.reviews[0].user.lastName}}</ng-container>
         </div>
         <div class="">{{ product.reviews[0].createdAt | date }}</div>
       </div>
@@ -183,7 +188,7 @@
   </div>
 
   <div *ngIf="visible">
-    <div class="container" *ngIf="product">
+    <div class="container" *ngIf="product.reviews">
       <reviews [product]="product"></reviews>
     </div>
   </div>
@@ -191,7 +196,7 @@
     <similar-products [products]="similarProducts$ | async"></similar-products>
   </div>
 
-  <div *ngIf="errorMessage$ | async as errorMessage"> 
-    {{errorMessage}}
+  <div *ngIf="errorMessage$ | async as errorMessage">
+    {{ errorMessage }}
   </div>
 </div>

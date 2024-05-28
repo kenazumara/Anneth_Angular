@@ -1,3 +1,5 @@
+import { User } from "../user/user";
+
 export interface Product {
   id: string;
   name: string;
@@ -49,6 +51,7 @@ export interface Review {
   user: User
 }
 
-export interface User{
-  name: string
-}
+// export interface User{
+//   firstName: string
+//   lastName: string
+// }

@@ -1,6 +1,7 @@
 import { createReducer, on } from '@ngrx/store';
 import { Product } from '../product';
 import { ProductApiActions, ProductPageActions } from './actions';
+import { Observable } from 'rxjs';
 
 export interface ProductState {
   products: Product[];
@@ -8,7 +9,8 @@ export interface ProductState {
   similarProducts: Product[] | null;
   currentProductId: string | null;
   productError: string,
-  productsError: string
+  productsError: string,
+  totalCost: number | null,
 };
 
 
@@ -18,7 +20,8 @@ const initialState: ProductState = {
   similarProducts: null,
   currentProductId: null,
   productError: '',
-  productsError:''
+  productsError:'',
+  totalCost: null,
 };
 
 export const productReducer = createReducer<ProductState>(
@@ -60,6 +63,14 @@ export const productReducer = createReducer<ProductState>(
       ...state,
       similarProducts: action.products,
       productError: ''
+    }
+  }),
+  on(ProductPageActions.LoadPrice, (state, action): ProductState => {
+    console.log(state)
+    console.log(initialState)
+    return {
+      ...state,
+      totalCost: action.price 
     }
   })
 );

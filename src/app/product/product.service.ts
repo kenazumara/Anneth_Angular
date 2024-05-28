@@ -23,7 +23,7 @@ import { Product } from './product';
 })
 export class ProductService {
   constructor(private http: HttpClient) {}
-  isLoading: boolean = true
+  isLoading: boolean = true;
 
   getProducts() {
     const url = 'http://127.0.0.1:5000/api/v1';
@@ -31,8 +31,8 @@ export class ProductService {
       map((data) => data.data.data),
       shareReplay(1),
       tap((data) => {
-        console.log(data)
-        if (data) this.isLoading = false
+        console.log(data);
+        if (data) this.isLoading = false;
       }),
       shareReplay(1),
       catchError(this.handleError)
@@ -40,10 +40,12 @@ export class ProductService {
   }
 
   getprod() {
-    const request = new HttpRequest('GET', 'http://127.0.0.1:5000/api/v1/products',
-      {reportProgress: true,}
-    )
-    return this.http.request(request)
+    const request = new HttpRequest(
+      'GET',
+      'http://127.0.0.1:5000/api/v1/products',
+      { reportProgress: true }
+    );
+    return this.http.request(request);
   }
 
   getProduct(id: string): Observable<Product> {
@@ -51,8 +53,8 @@ export class ProductService {
     return this.http.get<any>(`${url}/${id}`).pipe(
       map((data) => data.data.data),
       tap((data) => {
-        console.log(data)
-        if (data) this.isLoading = false
+        console.log(data);
+        if (data) this.isLoading = false;
       }),
       catchError(this.handleError)
     );
@@ -61,11 +63,10 @@ export class ProductService {
   getSimilarProducts(id: string) {
     const url = `http://127.0.0.1:5000/api/v1/products/${id}/relatedProducts`;
     return this.http.get<any>(url).pipe(
-      map((data) => (data.data.products)),
+      map((data) => data.data.products),
       catchError(this.handleError)
     );
   }
-
 
   private handleError(err: HttpErrorResponse): Observable<never> {
     // in a real world app, we may send the server to some remote logging infrastructure

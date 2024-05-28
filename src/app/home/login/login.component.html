@@ -1,0 +1,75 @@
+<div class="container">
+  <div class="col signin-cont">
+
+  <div class="col img-logo me-3 d-flex justify-content-center mb-5 w-100">
+    <img src="../../../assets/img/logo.png" class="img-fluid col-1" alt="logo" />
+  </div>
+  <div class="col  mb-4">
+    <p class="fs-4 fw-bold  text-center mb-3">Welcome to Anneth</p>
+    <p class="fs-5 text-center">Type your e-mail to log in or create an Anneth account.</p>
+  </div>
+  <form class="form-group" novalidate #login="ngForm" (ngSubmit)="loginForm(login)">
+    <div class="form-group mb-3">
+      <input
+        type="email"
+        class="form-control"
+        placeholder="Email Address"
+        ngModel
+        name="email"
+        #email="ngModel"
+        required
+        [ngClass]="{
+          'is-invalid': (email.touched || email.dirty) && email.invalid
+        }"
+      />
+      <div
+        class="invalid-feedback"
+        *ngIf="(email.touched || email.dirty) && email.hasError('required')"
+      >
+        Email Address Required
+      </div>
+    </div>
+    <div class="form-group mb-3">
+      <input
+        type="password"
+        class="form-control"
+        placeholder="Enter Password"
+        ngModel
+        name="password"
+        required
+        #password="ngModel"
+        [ngClass]="{
+          'is-invalid': (password.dirty || password.touched) && password.invalid
+        }"
+      />
+      <div
+        class="invalid-feedback"
+        *ngIf="(password.dirty || password.touched) && password.hasError('required')"
+      >
+        Password Required
+      </div>
+    </div>
+    <button type="submit" [disabled]="!login.valid" class="btn mt-4 login-btn">
+      Sign In
+    </button>
+  </form>
+  <div class="row mt-3 mb-2">
+    <p class="text-center" style="font-size: 14px; margin-bottom: -2px !important;">By continuing you agree to Anneth's</p>
+    <a class="terms mb-3 text-center" style="font-size: 14px;" href="#">Terms and condition</a>
+    <p  class="fs-6  text-center">For further support, you may visit the Help Center or contact our customer service team.</p>
+  </div>
+  <div class="  mt-4">
+    <a class="signup-link" routerLink="/signup"><p class="text-center fs-5">Don't have an account? Sign Up</p></a>
+  </div> 
+  <div class="container mt-5 d-flex justify-content-center align-items-center">
+    <div class="d-flex justify-content-center">
+      <div class="img-logo me-1 d-flex align-items-center">
+        <img src="../assets/img/logo.png" class="img-fluid w-100" alt="logo" />
+      </div>
+      <div class="d-flex align-items-center">
+        <p class="mb-0 fs-4 fw-bold fst-italic text-center">Anneth</p>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
