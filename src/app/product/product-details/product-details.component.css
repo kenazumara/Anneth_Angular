@@ -26,3 +26,61 @@
 .hide-modal {
   display: none !important;
 }
+
+@media screen and (max-width: 450px){
+  .page-title{
+    font-size: 16px !important;
+    padding-left: 15px !important;
+  }
+
+  .product-desc{
+    font-size: 14px!important;
+  }
+
+  .prod-detail{
+    padding-left: 15px !important;
+  }
+
+  .prod-detail-p{
+    font-size: 13px!important;
+  }
+
+  .prod-detail-q{
+    font-size: 11px!important;
+  }
+
+  .review-text{
+    font-size: 13px!important;
+  }
+
+  .color-array{
+    padding-left: 15px!important;
+  }
+
+  .color-bg{
+    width: 90%!important;
+  }
+
+  .prod-detail-c{
+    font-size: 14px !important;
+    margin-bottom: 3px!important;
+  }
+
+  .prod-detail-s{
+    font-size: 14px !important;
+    padding-right: 15px !important;
+  }
+
+  .prod-detail-collasible{
+    padding: 0px 0px 0px 15px !important
+  }
+
+  .review-cont{
+    font-size: 12px !important;
+    padding-left: 15px !important;
+  }
+  .review-cont1{
+    margin-left: 15px !important;
+    margin-right: 15px !important;
+  }
+}
