@@ -2,4 +2,86 @@
   background-color: white;
   border-radius: 10px;
   padding: 20px;
+  width: 250px;
+  height: max-content;
 }
+
+.container{
+  /* min-height: 100%; */
+}
+
+.profile{
+  display: flex;
+}
+
+.acct-info{
+padding: 4px 10px;
+border-radius: 5px;
+cursor: pointer;
+}
+.acct-info:hover{
+background-color: #dfdfdf;
+}
+
+.del-btn{
+  text-decoration: none;
+}
+
+
+@media screen and (max-width: 893px) {
+  .router-div{
+    width: 350px !important;
+    overflow-x: scroll;
+   }
+}
+@media screen and (max-width: 793px) {
+  .router-div{
+    width: 350px !important;
+    overflow-x: scroll;
+    /* padding: 0!important; */
+   }
+
+   .profile-cont{
+    padding: 0 !important;
+   }
+
+
+}
+@media screen and (max-width: 690px) {
+  .router-div{
+    width: 350px !important;
+    overflow-x: scroll;
+    padding-right: 0!important;
+   }
+
+   .profile-cont{
+    padding: 0 !important;
+   }
+
+}
+
+.hidden{
+  display: none;
+}
+
+@media screen and (max-width: 512px) {
+  .profile{
+    display: block;
+  }
+
+  .router-div{
+    padding-left: 0 !important;
+  }
+
+  .acct-nav {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+}
+
+@media screen and (max-width: 994px) {
+
+  .card{
+    flex-grow: 1;
+  }
+ }
