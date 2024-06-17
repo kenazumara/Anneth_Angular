@@ -1,13 +1,128 @@
 .card {
   transition: all 0.3s;
   border: none !important;
+  width: 280px;
   /* backface-visibility: hidden; */
 }
+
+.material{
+  display: none
+}
+
+@media screen and (max-width: 1540px) {
+
+  .card{
+    width: 284px !important;
+  }
+ }
+@media screen and (max-width: 1526px) {
+
+  .card{
+    width: 283px !important;
+  }
+ }
+@media screen and (max-width: 1513px) {
+
+  .card{
+    width: 283px !important;
+  }
+ }
+@media screen and (max-width: 1373px) {
+
+  .card{
+    width: 255px !important;
+  }
+}
+ 
+@media screen and (max-width: 1032px) {
+
+  .card{
+    width: 250px !important;
+  }
+ }
+
+@media screen and (max-width: 1014px) {
+
+  .card{
+    width: 245px !important;
+  }
+ }
+@media screen and (max-width: 994px) {
+
+  .card{
+    width: 240px !important;
+  }
+ }
+@media screen and (max-width: 977px) {
+
+  .card{
+    width: 235px !important;
+  }
+ }
+@media screen and (max-width: 957px) {
+
+  .card{
+    width: 230px !important;
+  }
+ }
+@media screen and (max-width: 940px) {
+
+  .card{
+    width: 220px !important;
+  }
+ }
+@media screen and (max-width: 900px) {
+
+  .card{
+    width: 210px !important;
+  }
+ }
+@media screen and (max-width: 866px) {
+
+  .card{
+    width: 300px !important;
+  }
+ }
+@media screen and (max-width: 808px) {
+
+  .card{
+    width: 267px !important;
+  }
+ }
+@media screen and (max-width: 727px) {
+
+  .card{
+    width: 231px !important;
+  }
+ }
+@media screen and (max-width: 635px) {
+
+  .card{
+    width: 214px !important;
+  }
+ }
+@media screen and (max-width: 594px) {
+
+  .card{
+    flex-grow: 1;
+  }
+
+  .material {
+    display: block;
+  }
+ }
 
 .card:hover {
   box-shadow: 2px -1px 5px 2px rgba(0, 0, 0, 0.1);
   transform: scale(1.02);
   cursor: pointer;
+}
+
+@media screen and (max-width: 450px){
+  .page-title{
+    font-size: 15px !important;
+    margin: 10px 5px 2px 5px!important ;
+  }
 }
 
 .cart-btn {
@@ -22,6 +137,7 @@
 .cart-btn:hover{
   background-color: rgb(227, 148, 3);
 }
+
 
 .card:hover .cart-btn {
   opacity: 1 !important;
