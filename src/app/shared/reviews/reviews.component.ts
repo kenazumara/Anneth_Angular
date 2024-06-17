@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Product } from 'src/app/product/product';
 
 @Component({
@@ -19,9 +19,5 @@ export class ReviewsComponent implements OnInit {
       this.stars = this.product.reviewStat;
       this.reviewArray = Object.entries(this.stars);
     }
-  }
-
-  toggleContent(){
-    this.visible= !this.visible
   }
 }
