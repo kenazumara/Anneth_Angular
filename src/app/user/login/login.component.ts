@@ -1,10 +1,8 @@
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { LoginService } from './login.service';
 import { Router } from '@angular/router';
 import { AuthService } from '../auth.service';
 import { ToastrService } from 'src/app/shared/toastr.service';
-// import { ToastrService } from 'src/app/shared/toastr.service';
 
 @Component({
   selector: 'app-login',
@@ -59,17 +57,4 @@ export class LoginComponent implements OnInit {
 
     console.log(form.value);
   }
-
-  // loginForm(form: NgForm) {
-  //   const password = form.value.password;
-  //   const email = form.value.email;
-  //   this.authService.login(email, password).subscribe((data) => {
-  //     if(this.authService.redirectUrl) {
-  //       this.router.navigateByUrl(this.authService.redirectUrl);
-  //     } else {
-  //       this.router.navigate(['/products']);
-  //     }
-  //   });
-  //   console.log(form.value);
-  // }
 }
