@@ -1,0 +1,45 @@
+<div class="container">
+  <div class="col">
+    <h3 class="fs-4 fw-bold">Orders</h3>
+    <div *ngFor="let order of orders">
+      <div
+        class="card mb-4"
+        *ngFor="let product of order.products; let i = index"
+      >
+        <div
+          *ngIf="order; else errorMessage"
+          class="order-detail col d-flex justify-content-between m-2"
+        >
+          <hr />
+          <div class="prod-img">
+            <img
+              [src]="'./assets/products/75x75_' + product.image"
+              alt=""
+              class="fluid-img"
+            />
+          </div>
+          <div class="prod-detail w-50">
+            <div class="prod-name">
+              <p class="mb-2">({{ product.name }}) - {{ product.color }}</p>
+              <p class="order-text">Order no: {{ product._id }}</p>
+            </div>
+          </div>
+          <div class="ms-1">
+            <a
+              class="btn rate-btn"
+              data-bs-toggle="modal"
+              [attr.data-bs-target]="'#exampleModal_' + i"
+              >RATE THIS PRODUCT</a
+            >
+          </div>
+        </div>
+        <!-- Modal -->
+        <app-product-reviews
+          [index]="i"
+          [reviewProducts]="product"
+        ></app-product-reviews>
+      </div>
+    </div>
+    <div *ngIf="errorMessage" class="col bg-info p-3">{{ errorMessage }}</div>
+  </div>
+</div>

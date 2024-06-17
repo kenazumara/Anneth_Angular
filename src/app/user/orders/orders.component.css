@@ -1,0 +1,90 @@
+.prod-detail {
+  flex-grow: 1;
+  padding-left: 20px;
+}
+
+.rate-btn {
+  color: orange;
+  margin-bottom: 30px;
+  padding: 4px 10px;
+  width: max-content;
+}
+.rate-btn:hover {
+  background-color: rgb(248, 223, 177);
+  color: orange;
+  margin-bottom: 30px;
+  padding: 4px 10px;
+}
+
+.order-text {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+@media screen and (max-width: 1330px) {
+  .container {
+    width: 109%;
+  }
+}
+@media screen and (max-width: 1200px) {
+  .container {
+    width: 117%;
+  }
+}
+@media screen and (max-width: 1160px) {
+  .container {
+    width: 124%;
+  }
+
+  .prod-detail {
+    flex-grow: 1;
+    padding-left: 15px;
+  }
+}
+@media screen and (max-width: 1160px) {
+  .container {
+    width: 124%;
+  }
+  .prod-detail {
+    flex-grow: 1;
+    padding-left: 10px;
+  }
+}
+@media screen and (max-width: 1109px) {
+  .container {
+    width: 130%;
+  }
+  .prod-detail {
+    flex-grow: 1;
+    padding-left: 5px;
+  }
+}
+@media screen and (max-width: 904px) {
+  .prod-detail {
+    width: 100% !important;
+  }
+
+  .order-detail {
+    display: block !important;
+    margin-left: 10px;
+  }
+
+  hr {
+    display: none !important;
+  }
+
+  .rate-btn {
+    margin-bottom: 0 !important;
+    font-size: 12px;
+  }
+}
+
+@media screen and (max-width: 512px) {
+  .container {
+    width: 97%;
+  }
+
+  .order-text {
+    margin-bottom: 10px !important;
+  }
+}
