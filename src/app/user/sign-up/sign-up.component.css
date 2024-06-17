@@ -1,0 +1,68 @@
+.container {
+  /* z-index: 200;
+  margin-top: 80px; */
+}
+
+.login-btn {
+  background-color: orange;
+  color: white;
+  padding: 8px 12px;
+  width: 100%;
+}
+
+.img-fluid2 {
+  width: 50%;
+}
+
+.img-logo {
+  width: 5%;
+}
+
+.signup-link {
+  text-decoration: none;
+  color: orange;
+}
+
+.signin-cont {
+  width: 45%;
+  margin: auto;
+  /* height: 100vh; */
+  /* padding-bottom: 100%; */
+  /* padding-bottom: 1000px; */
+}
+
+@media screen and (max-width: 1250px) {
+ .signin-text{
+  font-size: 17px !important;
+ }
+}
+@media screen and (max-width: 1068px) {
+ .signin-cont{
+width: 65%; }
+.signin-text{
+  font-size: 15px !important;
+ }
+}
+@media screen and (max-width: 658px) {
+ .signin-cont{
+width: 85%; }
+.signin-text{
+  font-size: 15px !important;
+ }
+}
+@media screen and (max-width: 507px) {
+ .signin-cont{
+width: 100%; }
+.signin-text{
+  font-size: 15px !important;
+ }
+}
+
+.terms {
+  color: orange;
+}
+
+.error-message {
+  color: red;
+  margin-top: 10px;
+}

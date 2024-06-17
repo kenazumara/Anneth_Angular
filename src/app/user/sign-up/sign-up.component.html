@@ -1,0 +1,199 @@
+<div class="fluid-container">
+  <div class="col signin-cont">
+    <div class="col img-logo me-3 d-flex justify-content-center mb-3 w-100">
+      <img
+        src="../../../assets/img/logo.png"
+        class="img-fluid col-1"
+        alt="logo"
+      />
+    </div>
+    <div class="col mb-4">
+      <p class="fs-4 fw-bold text-center mb-3">Create your account</p>
+      <p class="signin-text fs-5 text-center">
+        Let's get started by creating your account. To keep your account safe,
+        we need a strong password.
+      </p>
+    </div>
+    <form class="form-group" (ngSubmit)="signup(loginForm.value)" [formGroup]="loginForm">
+      <div class="form-group mb-3">
+        <input
+          type="firstName"
+          class="form-control"
+          placeholder="FirstName"
+          formControlName="firstName"
+          [ngClass]="{
+            'is-invalid':
+              (f['firstName'].touched || f['firstName'].dirty) && f['firstName'].invalid
+          }"
+        />
+        <div class="invalid-feedback">
+          <span *ngIf="f['firstName'].errors?.['required']">
+            First Name is required
+          </span>
+          <span *ngIf="(f['firstName'].touched && f['firstName'].dirty) && f['firstName'].errors?.['alphabetOnly']">
+            First Name must contain only alphabets
+          </span>
+        </div>
+      </div>
+      <div class="form-group mb-3">
+        <input
+          type="lastName"
+          class="form-control"
+          placeholder="LastName"
+          formControlName="lastName"
+          [ngClass]="{
+            'is-invalid':
+              (f['lastName'].touched || f['lastName'].dirty) && f['lastName'].invalid
+          }"
+        />
+        <div class="invalid-feedback">
+          <span *ngIf="f['lastName'].errors?.['required']">
+            Last Name is required
+          </span>
+          <span *ngIf="(f['lastName'].touched && f['lastName'].dirty) && f['lastName'].errors?.['alphabetOnly']">
+            Last Name must contain only alphabets
+          </span>
+        </div>
+      </div>
+      <div class="form-group mb-3">
+        <input
+          type="email"
+          class="form-control"
+          placeholder="Email Address"
+          formControlName="email"
+          [ngClass]="{
+            'is-invalid':
+              (f['email'].touched || f['email'].dirty) && f['email'].invalid
+          }"
+        />
+        <div class="invalid-feedback">
+          <span *ngIf="f['email'].errors?.['required']">
+            Email is required
+          </span>
+          <span *ngIf="f['email'].errors?.['email']">
+            Invalid email address
+          </span>
+        </div>
+      </div>
+      <div class="form-group mb-3">
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Gender"
+          formControlName="gender"
+          [ngClass]="{
+            'is-invalid':
+              (f['gender'].touched || f['gender'].dirty) && f['gender'].invalid
+          }"
+        />
+        <div class="invalid-feedback">
+          <span *ngIf="f['gender'].errors?.['required']">
+            Gender is required
+          </span>
+        </div>
+      </div>
+      <div class="form-group mb-3">
+        <input
+          type="tel"
+          class="form-control"
+          placeholder="PhoneNumber"
+          formControlName="phoneNumber"
+          [ngClass]="{
+            'is-invalid':
+              (f['phoneNumber'].touched || f['phoneNumber'].dirty) && f['phoneNumber'].invalid
+          }"
+        />
+        <div class="invalid-feedback">
+          <span *ngIf="f['phoneNumber'].errors?.['required']">
+            Phone number is required
+          </span>
+        </div>
+      </div>
+      <div class="form-group" formArrayName="passwordGroup">
+        <div class="form-group mb-3">
+          <input
+            type="password"
+            class="form-control"
+            placeholder="Enter Password"
+            formControlName="password"
+            [ngClass]="{
+              'is-invalid':
+                (password?.touched || password?.dirty) &&
+                password?.invalid
+            }"
+          />
+          <div class="invalid-feedback">
+            <span *ngIf="password?.errors?.['required']">
+              Password is required
+            </span>
+            <span *ngIf="password?.errors?.['minlength']">
+              Password should be at least 8 characters
+            </span>
+          </div>
+        </div>
+        <div class="form-group mb-3">
+          <input
+            type="password"
+            class="form-control"
+            placeholder="Confirm Password"
+            formControlName="confirmPassword"
+            [ngClass]="{
+              'is-invalid': loginForm.get('passwordGroup')?.errors ||
+                ((confirmPassword?.touched || confirmPassword?.dirty) &&
+                confirmPassword?.invalid)
+            }"
+          />
+          <div class="invalid-feedback">
+            <span *ngIf="confirmPassword?.errors?.['required']">
+              Confirm your password 
+            </span>
+            <span *ngIf="loginForm.get('passwordGroup')?.errors?.['passwordMisMatch']">
+              Both passwords must match
+            </span>
+          </div>
+        </div>
+      </div>
+      <div *ngIf="errorMessage" class="error-message">
+        {{ errorMessage }}
+      </div>
+      <button
+        type="submit"
+        [disabled]="!loginForm.valid"
+        class="btn mt-4 login-btn"
+      >
+        Sign In
+      </button>
+    </form>
+    <div class="row mt-3 mb-2">
+      <p
+        class="text-center"
+        style="font-size: 14px; margin-bottom: -2px !important"
+      >
+        By continuing you agree to Anneth's
+      </p>
+      <a class="terms mb-3 text-center" style="font-size: 14px" href="#"
+        >Terms and condition</a
+      >
+      <p class="fs-6 text-center">
+        For further support, you may visit the Help Center or contact our
+        customer service team.
+      </p>
+    </div>
+    <div
+      class="container mt-5 d-flex justify-content-center align-items-center"
+    >
+      <div class="d-flex justify-content-center">
+        <div class="img-logo me-1 d-flex align-items-center">
+          <img
+            src="../assets/img/logo.png"
+            class="img-fluid w-100"
+            alt="logo"
+          />
+        </div>
+        <div class="d-flex align-items-center">
+          <p class="mb-0 fs-4 fw-bold fst-italic text-center">Anneth</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
