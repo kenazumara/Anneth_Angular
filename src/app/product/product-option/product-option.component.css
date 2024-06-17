@@ -55,8 +55,9 @@
 
 input[type="number"] {
   text-align: center;
-  width: 70px;
+  width: 48px;
   padding-left: 15px
+
 }
 
 .add-btn {
@@ -94,4 +95,18 @@ input[type="number"] {
   border: solid 1px orange;
   background-color: white;
   color: orange
+}
+
+.modal-dialog{
+  width: 80%;
+  margin: auto;
+}
+
+@media screen and (max-width: 450px){
+  .color{
+     font-size: 14px !important; 
+  }
+  .price-btn{
+  font-size: 14px !important;    
+  }
 }
