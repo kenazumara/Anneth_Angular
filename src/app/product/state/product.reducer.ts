@@ -1,7 +1,6 @@
 import { createReducer, on } from '@ngrx/store';
 import { Product } from '../product';
 import { ProductApiActions, ProductPageActions } from './actions';
-import { Observable } from 'rxjs';
 
 export interface ProductState {
   products: Product[];
@@ -12,7 +11,6 @@ export interface ProductState {
   productsError: string,
   totalCost: number | null,
 };
-
 
 const initialState: ProductState = {
   products: [],
