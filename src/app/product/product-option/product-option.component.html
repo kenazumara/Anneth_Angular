@@ -110,14 +110,13 @@
             />
             
           </div>
-
-          <div class="col">
-            {{errorMessage}}
-          </div>
           <div class="col mt-4 me-3 float-end btn-container">
             <button type="submit" class="btn price-btn fs-6" (click)="addToCart(priceForm)">Add To Cart</button>
           </div>
         </form>
+      </div>
+      <div class="col error-message">
+        {{errorMessage}}
       </div>
     </div>
   </div>
