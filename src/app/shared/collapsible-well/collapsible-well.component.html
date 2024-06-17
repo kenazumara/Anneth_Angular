@@ -1,4 +1,4 @@
 <div class="" (click)="toggleContent()">
-  <h4 *ngIf="!visible">Specification</h4>
+  <h4 class="fs-5 mt-2" *ngIf="!visible">Specification</h4>
   <ng-content *ngIf="visible" select="[well-body]" ></ng-content>
 </div>
