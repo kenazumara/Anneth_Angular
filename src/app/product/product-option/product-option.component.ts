@@ -75,15 +75,15 @@ export class ProductOptionComponent implements OnInit {
     this.cartService.addcart([cart]).subscribe({
       next: () => {
         if (this.authService.isLoggedIn) {
-          this.toastr.success('Item added to cart successfully');
+          this.toastr.success('Item added to cart successfully!');
         } else {
-          this.toastr.warning('You\'re not logged in');
+          this.toastr.warning('You\'re not logged in!');
         }
         this.router.navigateByUrl('/cart');
       },
       error: (err) => {
         this.errorMessage = err;
-        this.toastr.error('Error adding to cart');
+        this.toastr.error('Error adding to cart!');
       },
     });
   }
