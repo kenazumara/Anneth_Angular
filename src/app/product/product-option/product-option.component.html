@@ -21,7 +21,7 @@
       </div>
       <div class="modal-body" *ngIf="product">
         <h5
-          class="modal-title d-flex justify-content-center"
+          class="modal-title fs-6 fw-semibold d-flex justify-content-center"
           id="exampleModalLabel"
         >
           {{ product.name }}
@@ -35,14 +35,14 @@
             alt=""
           />
         </div>
-        <div class="col d-flex justify-content-center fw-bold fs-4">
+        <div class="color col d-flex justify-content-center mt-2 fw-bold fs-5">
           {{
             product.color[index].discountPrice
               | currency : "USD" : "symbol" : "1.2-2"
           }}
         </div>
-        <div class="col pb-3 fs-4">
-          <span class="fw-bold me-3">Color:</span
+        <div class="col pb-3 fs-5 color">
+          <span class=" fw-bold me-3">Color:</span
           >{{ product.color[index].color }}
         </div>
         <div class="d-flex mb-4" style="background-color: #d5d4d4">
@@ -57,12 +57,12 @@
             />
           </div>
         </div>
-        <div class="col fs-4 mb-4">
-          <span class="fw-bold me-3">Quantity:</span
+        <div class="col fs-5 mb-4 color">
+          <span class=" fw-bold me-3">Quantity:</span
           >{{ product.color[index].quantity }} Available
         </div>
         <form novalidate #priceForm="ngForm" (ngSubmit)="createCartFromForm(priceForm)">
-          <div class=" input-group fs-4">
+          <div class=" input-group fs-5">
             <button
               type="button"
               [disabled]="quantity <= 1"
@@ -91,8 +91,8 @@
               +
             </button>
           </div>
-          <div class="form-group col mt-4 fs-4">
-            <span class="fw-bold">Total Cost : </span>
+          <div class="color form-group col mt-4 fs-5">
+            <span class="color fw-bold">Total Cost : </span>
             {{ totalCost | currency : 'USD' : 'symbol' : '1.2-2' }}
             <input
             hidden
@@ -108,21 +108,11 @@
               [ngModel]="product.id"
               class="form-control"
             />
-            <input
-            hidden
-              disabled
-              name="discountPrice"
-              [ngModel]="product.color[index].discountPrice"
-              class="form-control"
-            />
-            <input
-            hidden
-              disabled
-              name="totalCost"
-              [ngModel]="totalCost | currency : 'USD' : 'symbol' : '1.2-2'"
-              class="form-control"
-            />
             
+          </div>
+
+          <div class="col">
+            {{errorMessage}}
           </div>
           <div class="col mt-4 me-3 float-end btn-container">
             <button type="submit" class="btn price-btn fs-6" (click)="addToCart(priceForm)">Add To Cart</button>
