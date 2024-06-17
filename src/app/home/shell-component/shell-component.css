@@ -1,0 +1,11 @@
+.router-container{
+  width: 80%; margin: auto;
+}
+
+@media screen and (max-width: 650px) {
+  .router-container{
+    width: 100%;
+  }
+  
+  
+ }
