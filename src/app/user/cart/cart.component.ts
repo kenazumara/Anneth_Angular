@@ -59,6 +59,7 @@ export class CartComponent implements OnInit {
   }
   
 
+  // Calculate total items in cart
   calculateCartQuantity(): number {
     return this.cartItems.items.reduce(
       (total, item) => total + item.quantity,
@@ -66,6 +67,7 @@ export class CartComponent implements OnInit {
     );
   }
 
+  // Gets the total quanity of items available
   getMaxQuantity(item: Items): number {
     const product = item.product;
     const colorOption = product?.color.find(
@@ -74,6 +76,7 @@ export class CartComponent implements OnInit {
     return colorOption ? colorOption.quantity : 0;
   }
 
+  // Method to add quantity of item
   increment(index: number): void {
     const item = this.cartItems.items[index];
     if (item.quantity < item.maxQuantity) {
@@ -84,6 +87,7 @@ export class CartComponent implements OnInit {
   }
 
 
+  //Method to reduce quantity of item
   decrement(index: number): void {
     const item = this.cartItems.items[index];
     this.setLoadingState(index, true);
@@ -108,6 +112,7 @@ export class CartComponent implements OnInit {
     });
   }
 
+  // Loading spinner
   private setLoadingState(index: number, state: boolean): void {
     this.isLoading[index] = state;
   }
