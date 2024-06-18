@@ -1,23 +1,35 @@
-.acct-nav{
+.acct-nav {
   background-color: white;
   border-radius: 10px;
-  padding: 20px 0px 20px 0px;
-  margin: 0px 20px 0px 20px
+  padding: 20px;
 }
 
-.delivery-text{
-  font-size: 14px
+.address-cont {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  overflow: hidden;
 }
 
-.delivery-btn{
-  font-size: 14px
+.delivery-text {
+  font-size: 14px;
 }
 
-.delivey-title{
-border-bottom: solid 1px rgb(240, 240, 240);
+.delivery-btn {
+  font-size: 14px;
+  color: white;
+  width: fit-content;
+  float: right;
+  padding: 5px 8px;
+  background-color: rgb(255, 189, 66);
+  cursor: pointer;
 }
 
-.des-text{
+.delivery-title {
+  border-bottom: solid 1px rgb(240, 240, 240);
+}
+
+.des-text {
   font-size: 14px;
   line-height: 1;
 }
@@ -26,37 +38,60 @@ border-bottom: solid 1px rgb(240, 240, 240);
   margin-right: 10px;
 }
 
-.acct-box{
-  border-bottom: solid 1px rgb(240, 240, 240);
-  padding: 7px;
+.acct-box {
+  flex: 0 0 48%;
+  box-sizing: border-box;
+  padding: 10px;
+  border: 1px solid red;
+  border-radius: 4px;
+  margin-bottom: 10px;
+  margin-right: 10px;
+  /* border-bottom: solid 1px rgb(240, 240, 240); */
 }
 
 .acct-nav2 {
-  border: solid 1px rgb(240, 240, 240);
-
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
 }
-/* 
-@media screen and (max-width: 768px) {
-  .acct-nav2 {
-    font-size: 20px;
-  }
-  p::first-letter {
-    font-size: 22px;
-  }
-  .img-logo {
-    width: 25%;
-  }
-  .logo-sym {
-    width: 30%;
-  }
-} */
 
-.text{
+.text {
   margin-left: 7px;
-  font-size: 12px;
+  font-size: 13px;
 }
 
-.tiny-icon{
+.tiny-icon {
   display: flex;
   align-items: center;
+}
+
+.tiny-icon svg {
+  fill: orange !important;
+}
+
+.name-input {
+  width: 49% !important;
+}
+
+.submit-btn {
+  color: white;
+  background-color: orange;
+  padding: 5px 10px;
+  cursor: pointer !important;
+}
+
+.submit-btn:hover {
+  border: solid 1px orange;
+  background-color: white;
+  color: orange;
+}
+
+.actions {
+  border-bottom: solid 1px #d1d1d1;
+}
+
+@media screen and (max-width: 1140px) {
+  .acct-box {
+    flex: 0 0 98%;
+  }
 }
