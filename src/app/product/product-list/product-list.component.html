@@ -1,6 +1,6 @@
 <div class="fluid-container" *ngIf="products$ | async as products">
-  <app-carousel class=""></app-carousel>
-  <h4 class="page-title fs-5 col ms-4 mt-3">{{ pageTitle }}</h4>
+  <app-carousel class="" *ngIf="!(errorMessage$ | async) "></app-carousel>
+  <h4 class="page-title fs-5 col ms-4 mt-3" *ngIf="!(errorMessage$ | async)">{{ pageTitle }}</h4>
   <div class="row m-auto justify-content-between" >
     <div
       class="card m-2 cursor-pointer"
@@ -77,7 +77,7 @@
       </div>
     </div>
   </div>
-  <div *ngIf="errorMessage$ | async as errorMessage">
+  <div *ngIf="errorMessage$ | async as errorMessage" class="bg-error">
     {{ errorMessage }}
   </div>
 </div>

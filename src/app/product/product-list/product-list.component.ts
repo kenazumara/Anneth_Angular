@@ -6,6 +6,8 @@ import { State } from 'src/app/state/app.state';
 import { ProductPageActions } from '../state/actions';
 import { Observable, Subscription, timer } from 'rxjs';
 import { getError, getProducts } from '../state';
+import { Router } from '@angular/router';
+import { HttpEventType, HttpResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-product-list',
@@ -25,6 +27,7 @@ export class ProductListComponent implements OnInit {
   constructor(
     private productService: ProductService,
     private store: Store<State>,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -37,5 +40,6 @@ export class ProductListComponent implements OnInit {
     this.products$ = this.store.select(getProducts);
 
     this.errorMessage$ = this.store.select(getError);
+
   }
 }
