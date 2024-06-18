@@ -1,6 +1,8 @@
 import {
   HttpClient,
   HttpErrorResponse,
+  HttpHeaders,
+  HttpRequest,
 } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import {
@@ -28,7 +30,9 @@ export class ProductService {
     const url = 'http://127.0.0.1:5000/api/v1/products';
     this.loadingSubject.next(true);
     return this.http.get<any>(url).pipe(
-      map((data) => data.data.data),
+      map((data) => {
+        this.loadingSubject.next(false)
+        return data.data.data}),
       tap(() => this.loadingSubject.next(false)),
       shareReplay(1),
       catchError((error) => {
@@ -42,7 +46,9 @@ export class ProductService {
     const url = `http://127.0.0.1:5000/api/v1/products/${id}`;
     this.loadingSubject.next(true);
     return this.http.get<any>(url).pipe(
-      map((data) => data.data.data),
+      map((data) => {
+        this.loadingSubject.next(false)
+        return data.data.data}),
       tap(() => this.loadingSubject.next(false)),
       catchError((error) => {
         this.loadingSubject.next(false);
@@ -55,7 +61,9 @@ export class ProductService {
     const url = `http://127.0.0.1:5000/api/v1/products/${id}/relatedProducts`;
     this.loadingSubject.next(true);
     return this.http.get<any>(url).pipe(
-      map((data) => data.data.products),
+      map((data) => {
+        this.loadingSubject.next(false)
+        return data.data.products}),
       tap(() => this.loadingSubject.next(false)),
       catchError((error) => {
         this.loadingSubject.next(false);
