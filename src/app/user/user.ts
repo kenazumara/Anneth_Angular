@@ -6,7 +6,7 @@ export interface User {
   password: string;
   confirmPassword: string;
   gender: string;
-  addresses?: Address[];
+  addresses: Address[];
 }
 
 export interface Address {

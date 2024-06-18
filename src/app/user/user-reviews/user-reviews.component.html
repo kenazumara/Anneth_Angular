@@ -1,0 +1,323 @@
+<!-- <div class="container">
+  <div class="col">
+    <h3 class="fs-4 fw-bold">
+      Rate and Review
+    </h3>
+    <li><hr class="dropdown-divider" /></li>
+    <div class="col">
+      <div class="prod-img">
+        <img src="" alt="" class="fluid-img">
+      </div>
+      <div class="prod-detail">
+        <div class="prod-name">
+          <p>reviewProducts name</p>
+        </div>
+        <div class="prod-star">
+          <div class="ratings-wrapper">
+            <div class="ratings">
+              <span class="fa fa-star checked">&#9733;</span>
+              <span class="fa fa-star checked">&#9733;</span>
+              <span class="fa fa-star checked">&#9733;</span>
+              <span class="fa fa-star">&#9733;</span>
+              <span class="fa fa-star">&#9733;</span>
+  
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> -->
+<!-- 
+<div class="container">
+  <div class="col">
+    <h3 class="fs-4 fw-bold">Rate and Review</h3>
+    <li><hr class="dropdown-divider" /></li>
+    <div class="col" *ngFor="let product of order">
+      <div class="prod-img">
+        <img src="" alt="" class="fluid-img">
+      </div>
+      <div class="prod-detail">
+        <div class="prod-name">
+          <p>product name</p>
+        </div>
+        <div class="prod-star">
+          <div class="ratings-wrapper">
+            <div class="ratings">
+              <span
+                class="fa fa-star"
+                *ngFor="let star of stars; let i = index"
+                [class.checked]="i < rating"
+                (click)="rateProduct(i + 1)"
+                >&#9733;</span
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> -->
+
+<!-- 
+<div class="container">
+  <div class="col">
+    <h3 class="fs-4 fw-bold">Rate and Review</h3>
+    <li><hr class="dropdown-divider" /></li>
+    <div *ngFor="let order of orders">
+      <div *ngFor="let product of order.products">
+        <div class="col">
+          <div class="prod-img">
+            <img [src]="'./assets/products/75x75_' + product.image" alt="" class="fluid-img">
+          </div>
+          <div class="prod-detail">
+            <div class="prod-name">
+              <p>{{ product.name }}</p>
+            </div>
+            <div class="prod-star">
+              <div class="ratings-wrapper">
+                <div class="ratings">
+                  <span
+                    class="fa fa-star"
+                    *ngFor="let star of stars; let i = index"
+                    [class.checked]="i < rating"
+                    (click)="rateProduct(product.product, i + 1)"
+                    >&#9733;</span
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> -->
+
+<!-- <div class="container">
+  <div class="col">
+    <h3 class="fs-4 fw-bold">Rate and Review</h3>
+    <li><hr class="dropdown-divider" /></li>
+    <div *ngFor="let order of orders">
+      <div *ngFor="let product of order.products">
+        <div class="col d-flex">
+          <div class="prod-img">
+            <img [src]="'./assets/products/75x75_' + product.image" alt="" class="fluid-img">
+          </div>
+          <div class="prod-detail">
+            <div class="prod-name">
+              <p>{{ product.name }}</p>
+            </div>
+            <div class="prod-star">
+              <div class="ratings-wrapper">
+                <div class="ratings">
+                  <span
+                    class="fa fa-star"
+                    *ngFor="let star of [0, 1, 2, 3, 4]; let i = index"
+                    [class.checked]="i < product.rating"
+                    (click)="rateProduct(product, i + 1)"
+                    >&#9733;</span
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> -->
+
+<!-- <div class="container">
+  <div class="col">
+    <h3 class="fs-4 fw-bold">Rate and Review</h3>
+    <h3 class="fs-4 fw-bold">{{title}}</h3>
+    <li><hr class="dropdown-divider" /></li>
+    <div *ngFor="let order of orders">
+      <div *ngFor="let product of order.products">
+        <div class="col d-flex">
+          <div class="prod-img">
+            <img [src]="'./assets/products/75x75_' + product.image" alt="" class="fluid-img">
+          </div>
+          <div class="prod-detail">
+            <div class="prod-name">
+              <p>{{ product.name }}</p>
+            </div>
+            <div class="prod-star">
+              <div class="ratings-wrapper">
+                <div class="ratings">
+                  <span
+                    class="fa fa-star"
+                    *ngFor="let star of [0, 1, 2, 3, 4]; let i = index"
+                    [class.checked]="i < product.rating"
+                    (click)="rateProduct(product, i + 1)"
+                    >&#9733;</span
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> -->
+
+<!-- rating-modal.component.html -->
+<!-- <div
+  class="modal fade"
+  [id]="'exampleModal_' + index"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">
+          Modal title
+        </h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <div class="container">
+          <div class="col">
+            <h3 class="fs-4 fw-bold">Rate and Review</h3>
+            <li><hr class="dropdown-divider" /></li>
+            <div class="col d-flex">
+              <div class="prod-img">
+                <img [src]="'./assets/products/75x75_' + reviewProducts.image" alt="" class="fluid-img">
+              </div>
+              <div class="prod-detail">
+                <div class="prod-name">
+                  <p>{{ reviewProducts.name }}</p>
+                </div>
+                <div class="prod-star">
+                  <div class="ratings-wrapper">
+                    <div class="ratings">
+                      <span
+                        class="fa fa-star"
+                        *ngFor="let star of [0, 4, 3, 2, 1]; let i = index"
+                        [class.checked]="i < prod?.rating"
+                        (click)="rateProduct(reviewProducts, i + 1)"
+                      >&#9733;</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button
+          type="button"
+          class="btn btn-secondary"
+          data-bs-dismiss="modal"
+        >
+          Close
+        </button>
+        <button type="button" class="btn btn-primary">
+          Save changes
+        </button>
+      </div>
+    </div>
+  </div>
+</div> -->
+
+<div
+  class="modal fade mt-5"
+  [id]="'exampleModal_' + index"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h6 class="modal-title fs-6 fw-semibold" id="exampleModalLabel">Rate and Review</h6>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <form
+        #reviewForm="ngForm"
+        novalidate
+      >
+        <div class="modal-body">
+          <div class="container">
+            <div class="col">
+              <h3 class="fs-4 fw-bold"></h3>
+              <div class="col d-flex">
+                <div class="prod-img me-2">
+                  <img
+                    [src]="'./assets/products/75x75_' + reviewProducts.image"
+                    alt=""
+                    class="fluid-img"
+                  />
+                </div>
+                <div class="prod-detail">
+                  <div class="prod-name">
+                    <p>{{ reviewProducts.name }}</p>
+                  </div>
+                  <div class="prod-star">
+                    <div class="ratings-wrapper">
+                      <div class="ratings">
+                        <span
+                          class="fa fa-star"
+                          *ngFor="let star of [0, 1, 2, 3, 4]; let i = index"
+                          [class.checked]="i < rating"
+                          (click)="rateProduct(reviewProducts, i + 1)"
+                          >&#9733;</span
+                        >
+                        <input
+                          type="number"
+                          hidden
+                          name="rating"
+                          [ngModel]="rating"
+                          class="form-control"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <textarea
+                    class="form-control"
+                    name="comment"
+                    placeholder="Comment"
+                    id=""
+                    ngModel
+                    required
+                  ></textarea>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <!-- <button
+            type="button"
+            class="btn btn-secondary"
+            data-bs-dismiss="modal"
+          >
+            Close
+          </button> -->
+          <button
+            type="submit"
+            data-bs-dismiss="modal"
+            (click)="createReview(reviewForm, reviewProducts.product)"
+            class="btn review-btn"
+          >
+            Submit your review
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

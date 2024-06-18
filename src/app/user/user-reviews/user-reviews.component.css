@@ -1,0 +1,63 @@
+
+ .ratings-wrapper {
+  display: inline-block !important;
+  margin-bottom: 20px !important;
+  /* padding: 0 10px !important; */
+}
+
+.ratings {
+  display: flex !important;
+  /* flex-direction: row-reverse; */
+}
+
+.ratings span:hover ~ span {
+  color: orange !important;
+}
+
+.ratings span:hover {
+  color: orange !important;
+}
+
+.ratings span {
+  cursor: pointer !important;
+  transition: color 0.2s, transform 0.2s !important;
+  font-size: 24px !important;
+}
+
+.checked {
+  color: gold !important;
+}
+
+
+.prod-detail{
+  width: 60%;
+}
+
+.modal-title{
+  margin: 0!important;
+}
+
+.review-btn{
+  border: solid 1px orange;
+  background-color: orange;
+  color: white
+}
+.review-btn:hover{
+  border: solid 1px orange;
+  background-color: white;
+  color: orange
+}
+.review-btn:active{
+  border: solid 1px orange;
+  background-color: white;
+  color: orange
+}
+
+@media screen and (max-width: 573px) {
+  .modal-dialog {
+    width: 90%;
+    margin-top: 25px;
+margin-left: auto !important;;
+margin-right: auto !important;;
+  }
+}
