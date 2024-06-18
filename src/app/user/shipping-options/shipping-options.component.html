@@ -1,0 +1,113 @@
+<div class="delivery-cont container" *ngIf="user">
+  <div class="error card"  *ngIf="errorMessage">
+    <p class="text">{{errorMessage}}</p>
+    <a routerLink="/account/delivery-address" class="link">Click to create address</a>
+  </div>
+  <div class="" *ngIf="!errorMessage" style="padding-bottom: 10%">
+    <div class="delivery-details">
+      <div class="card">
+        <div class="card-header">
+          <p class="fw-bold">1. CUSTOMER ADDRESS</p>
+        </div>
+        <div class="card-body" >
+          <p class="">{{ user.firstName }} {{ user.lastName }}</p>
+          <p class="address" *ngIf="user.addresses[0]">
+            {{ user.addresses[0].street }} {{ user.addresses[0].city }} |
+            {{ user.addresses[0].state }} | {{ user.phone }}
+          </p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header">
+          <p class="fw-bold">2. DELIVERY DETAILS</p>
+        </div>
+        <div class="card-body">
+          <p class="delivery-date">
+            Delivered between
+            <span class="fw-bold">{{ fiveDays | date : "dd MMM" }}</span> and
+            <span class="d fw-bold">{{ sevenDays | date : "dd MMM" }}</span>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="cart-info">
+      <div class="card">
+        <div class="card-header">
+          <p class="fw-bold">3. ORDER DETAILS</p>
+        </div>
+
+        <div class="card-body">
+          <div
+            class="product-info"
+            *ngFor="let item of cartItems?.items; let i = index"
+          >
+            <div class="cart-img">
+              <img
+                [src]="'/assets/products/800x800_' + item.image"
+                alt="Product Image"
+                class="fluid-img"
+                style="width: 70px"
+              />
+            </div>
+            <div class="product-summary pb-5">
+              <div class="product-name">
+                <p>{{ item.name }}</p>
+                <p class="fw-bold">
+                  {{
+                    item.discountPrice * item.quantity
+                      | currency : "USD" : "symbol" : "1.2-2"
+                  }}
+                </p>
+                <p>Quantity: {{ item.quantity }}</p>
+                <p class="delivery fw-bold">
+                  Delivery Fee:
+                  {{
+                    deliveryFeeCalc(item)
+                      | currency : "USD" : "symbol" : "1.2-2"
+                  }}
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <div
+            class="d-flex justify-content-between"
+            *ngIf="cartItems?.cartSubtotal"
+          >
+            <p>Subtotal</p>
+            <p>
+              {{
+                cartItems.cartSubtotal | currency : "USD" : "symbol" : "1.2-2"
+              }}
+            </p>
+          </div>
+          <div class="d-flex justify-content-between">
+            <p>Delivery Fee</p>
+            <p class="delivery-total fw-bold">
+              {{ deliveryFee | currency : "USD" : "symbol" : "1.2-2" }}
+            </p>
+          </div>
+          <div class="d-flex total-amt pb-3 justify-content-between">
+            <p>Total</p>
+            <p class="total fw-bold">
+              {{ total | currency : "USD" : "symbol" : "1.2-2" }}
+            </p>
+          </div>
+          <button
+            class="btn mt-3 float-end confirm-btn"
+            (click)="createOrder()"
+            [disabled]="isProcessing"
+          >
+            {{ buttonText }}
+            <span *ngIf="isProcessing">
+              <mat-spinner diameter="20"></mat-spinner>
+            </span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
